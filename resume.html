@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.17.0/pdf.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #182848;
+            margin: 0;
+            padding: 0;
+        }
+
+        .resume-section {
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .resume canvas {
+            display: block;
+            margin: 0 auto 20px auto;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-download {
+            margin-top: 20px;
+        }
+
+        #loading-indicator {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .container-fluid {
+            max-width: 100%;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid resume-section">
+        <div id="loading-indicator">Loading resume, please wait...</div>
+        <div id="pdf-viewer"></div>
+        <button class="btn btn-primary btn-download" onclick="downloadResume()">Download Resume</button>
+    </div>
+
+    <script>
+        // Path to the PDF file
+        const pdfUrl = 'assets/pdfs/JOHN_RESUME.pdf'; // Ensure this is the correct path
+        pdfjsLib.GlobalWorkerOptions.workerSrc = '//cdnjs.cloudflare.com/ajax/libs/pdf.js/2.17.0/pdf.worker.min.js';
+
+        // Function to render PDF
+        async function renderPDF(url) {
+            const pdfViewer = document.getElementById('pdf-viewer');
+            const loadingIndicator = document.getElementById('loading-indicator');
+
+            try {
+                const loadingTask = pdfjsLib.getDocument(url);
+                const pdf = await loadingTask.promise;
+
+                loadingIndicator.style.display = 'none'; // Hide loading indicator
+
+                // Adjust scale for better visibility
+                const scale = 1.5;  // Increase or decrease the scale value as needed
+
+                for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+                    const page = await pdf.getPage(pageNum);
+                    const viewport = page.getViewport({ scale: scale });
+
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    canvas.height = viewport.height;
+                    canvas.width = viewport.width;
+
+                    const renderContext = {
+                        canvasContext: context,
+                        viewport: viewport,
+                    };
+
+                    await page.render(renderContext).promise;
+                    pdfViewer.appendChild(canvas);
+                }
+            } catch (error) {
+                console.error('Error loading or rendering PDF:', error);
+                loadingIndicator.innerHTML = 'Error loading resume. Please try again.';
+            }
+        }
+
+        // Function to download the resume
+        function downloadResume() {
+            const link = document.createElement('a');
+            link.href = pdfUrl;
+            link.target = '_blank';
+            link.download = 'JOHN_RESUME.pdf';
+            link.click();
+        }
+
+        // Load and render the PDF on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderPDF(pdfUrl);
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+              document.body.insertAdjacentHTML('afterbegin', data);
+            });
+        });
+      </script>
+</body>
+</html>

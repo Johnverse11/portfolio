@@ -1,0 +1,398 @@
+/* Base Styles */
+body {
+    background-color: #182848; /* Dark blue background */
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    padding: 0;
+    height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scrollbars */
+}
+
+/* Style for sections */
+#home, #about, #intro-page, footer {
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+}
+
+/* Home Section */
+.home-section {
+    position: relative;
+    padding: 100px 10%;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.home-header {
+    max-width: 50%;
+    padding-right: 20px;
+}
+
+.home-header h1 {
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.home-header .wave {
+    display: inline-block;
+    animation: wave-animation 2s infinite;
+    transform-origin: 70% 70%;
+}
+
+@keyframes wave-animation {
+    0% { transform: rotate(0deg); }
+    10% { transform: rotate(14deg); }
+    20% { transform: rotate(-8deg); }
+    30% { transform: rotate(14deg); }
+    40% { transform: rotate(-4deg); }
+    50% { transform: rotate(10deg); }
+    60% { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.home-header .heading-name {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.home-header .main-name {
+    color: #007bff;
+}
+
+.home-header .Typewriter__wrapper {
+    font-size: 1.25rem;
+    color: #fff;
+    font-weight: 500;
+}
+
+.home-header .col-md-6 {
+    max-width: 45%;
+}
+
+.home-header .text-center img {
+    border-radius: 50%;
+    max-width: 90%;
+    height: auto;
+}
+
+/* About Section */
+.home-about-section {
+    padding: 60px 10%;
+    background-color: #fff;
+    color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 40px;
+}
+
+.home-about-description h1 {
+    font-size: 2.6em;
+    color: #ffffff;
+}
+
+.home-about-description .purple {
+    color: #800080;
+}
+
+.home-about-body {
+    font-size: 1.2em;
+    line-height: 1.5;
+    color: #ffffff;
+}
+
+.navbar {
+    background-color: #182848; /* Dark background */
+    border-bottom: 3px solid #182848; /* Add a bright border */
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+    color: #000000;
+}
+
+.nav-link {
+    color: #d1d1d1; /* Light gray text */
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #000000;
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.navbar-toggler {
+    border: none;
+    background-color: transparent;
+}
+
+.navbar-toggler-icon {
+    background-color: #000000; /* Toggler icon color */
+}
+
+.dropdown-menu {
+    background-color: #032e59;
+    border-radius: 0;
+}
+
+.dropdown-item {
+    color: #d1d1d1;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #000000;
+    color: #fff;
+}
+
+.navbar-nav.ms-auto {
+    font-weight: 500;
+}
+
+/* Add smooth transition for background change */
+.navbar a {
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar a:hover {
+    background-color: #800080;
+    color: #fff;
+    border-radius: 20px;
+}
+
+/* Social Media Section */
+#intro-page {
+    padding: 2rem;
+    text-align: center;
+    color: white;
+}
+
+#intro-page h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+#intro-page p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+}
+
+.home-social-icons {
+    margin: 0 30px;
+    display: inline-block;
+    color: #800080;
+    font-size: 40px;
+    width: 70px; /* Adjust the size of the circle */
+    height: 70px; /* Adjust the size of the circle */
+    line-height: 60px; /* Center-align the icon vertically */
+    text-align: center; /* Center-align the icon horizontally */
+    border: 2px solid #800080; /* Circle border */
+    border-radius: 50%; /* Makes it a circle */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.home-social-icons:hover {
+    color: #007bff;
+    border-color: #007bff;
+    background-color: #000000; /* Optional hover background color */
+}
+
+
+.home-header {
+    width: 70%; /* Adjust the percentage to your preference */
+    max-width: 800px; /* Optional: Set a maximum width */
+}
+
+/* Flexbox classes for layout */
+.flex {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px 0;
+    border-radius: 12px;
+}
+
+.flex a {
+    text-decoration: none;
+    color: #f9fafb;
+    font-size: 1.1rem;
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+
+.flex a:hover {
+    color: #007bff;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .home-section {
+        padding: 60px 20px;
+    }
+
+    .home-header h1 {
+        font-size: 2rem;
+    }
+
+    .home-header .main-name {
+        font-size: 2.2rem;
+    }
+
+    .home-header .col-md-6 {
+        max-width: 100%;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .home-header .img-fluid {
+        border-radius: 20px;
+        width: 150px;
+        height: 150px;
+    }
+
+    #intro-page {
+        padding: 1rem;
+    }
+
+    .flex {
+        flex-direction: column;
+        padding: 20px;
+    }
+}
+
+/* Add gradient effect for the footer */
+.black-gradient {
+    background: linear-gradient(135deg, rgba(17, 25, 40, 0.85), rgba(25, 28, 33, 0.7));
+}
+
+.text-sm {
+    font-size: 14px;
+}
+
+.text-neutral-600 {
+    color: #4b5563;
+}
+
+.text-neutral-50 {
+    color: #f9fafb;
+}
+
+.hover\:text-neutral-500:hover {
+    color: #6b7280;
+}
+
+/* Shooting Star Animation */
+@keyframes shooting-star {
+    0% {
+        opacity: 1;
+        transform: translateX(0) translateY(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-300px) translateY(100px) scale(0.5);
+    }
+}
+
+.shooting-stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.star {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    background: white;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: shooting-star 1.5s linear infinite;
+    opacity: 0;
+}
+
+/* Randomize stars */
+.star:nth-child(1) {
+    top: 20%;
+    left: 80%;
+    animation-delay: 0s;
+    animation-duration: 1.5s;
+}
+
+.star:nth-child(2) {
+    top: 40%;
+    left: 90%;
+    animation-delay: 1s;
+    animation-duration: 1.8s;
+}
+
+.star:nth-child(3) {
+    top: 10%;
+    left: 60%;
+    animation-delay: 0.5s;
+    animation-duration: 2s;
+}
+
+.star:nth-child(4) {
+    top: 50%;
+    left: 70%;
+    animation-delay: 1.5s;
+    animation-duration: 1.2s;
+}
+
+.star:nth-child(5) {
+    top: 30%;
+    left: 40%;
+    animation-delay: 2s;
+    animation-duration: 1.6s;
+}
+
+.star:nth-child(6) {
+    top: 70%;
+    left: 50%;
+    animation-delay: 2.5s;
+    animation-duration: 1.4s;
+}
+
+.star:nth-child(7) {
+    top: 20%;
+    left: 20%;
+    animation-delay: 3s;
+    animation-duration: 1.7s;
+}
+
+.resume canvas {
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    height: auto; /* Ensure it resizes correctly */
+}
+
+#pdf-viewer {
+    width: 100%;  /* Ensure full width */
+    overflow: auto;  /* Allow scrolling */
+}

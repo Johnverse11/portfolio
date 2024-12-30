@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>My Projects</title>
+  
+  <!-- Link to Google Fonts (if needed) -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  
+  <!-- Link to Tailwind CSS (optional if not using a build process) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Add Bootstrap CSS in your head -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Add Bootstrap JS in your head (for toggling navbar in mobile view) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Add any other required styles here -->
+  <style>
+    /* Additional custom styles */
+    .black-gradient {
+      background: linear-gradient(145deg, #4b6cb7, #182848);
+    }
+    .text-purple {
+      color: #9b59b6;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-white font-roboto">
+  <!-- Heading for the projects section -->
+  <div class="text-center mt-10">
+    <h1 class="font-bold text-4xl text-white">My Projects</h1>
+    <p class="text-lg text-gray-400 mt-2">Explore the following projects I have worked on</p>
+  </div>
+
+  <!-- Project Templates Section -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6 mt-10">
+    
+    <!-- Project 1 -->
+    <div class="relative p-6 rounded-2xl shadow-lg bg-gray-800 border border-white/[0.1]">
+      <div class="relative flex items-center justify-center w-full h-[300px] overflow-hidden mb-4">
+        <div class="relative w-full h-full overflow-hidden rounded-3xl" style="background-color:#13162D">
+          <img src="images/AM_INSPIRE.png" alt="Project 1 Background" class="w-full h-full object-cover">
+        </div>
+        <!-- <img src="" alt="Cover" class="z-10 absolute bottom-0"> -->
+      </div>
+      <h2 class="font-bold text-xl text-white">Project 1: Aether Mind: Revolutionizing Job and Course Discovery through Conversational AI </h2>
+      <p class="text-sm text-gray-400 mt-2"><br> A Flask-based app using Google Gemini API for personalized recommendations.<br>Integrated Adzuna and edX APIs to provide 1,500+ jobs and 1,200+ courses.<br>Achieved 90% NLP accuracy and 85% positive user feedback.</p>
+      <div class="flex items-center justify-between mt-5">
+        <div class="flex items-center">
+          <!-- Add your project tech icons here -->
+          <div class="border border-white/[0.2] rounded-full black-gradient w-8 h-8 flex justify-center items-center">
+            <img src="images/AM_INSPIRE_LOGO.png" alt="Next.js Icon" class="p-2">
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <p class="font-medium text-purple">Check Live Site</p>
+          <img alt="Arrow" loading="lazy" width="15" height="15" decoding="async" class="object-contain" style="color:transparent" src="arrow.svg">
+        </div>
+      </div>
+    </div>
+    
+    <!-- Project 2 -->
+    <div class="relative p-6 rounded-2xl shadow-lg bg-gray-800 border border-white/[0.1]">
+      <div class="relative flex items-center justify-center w-full h-[300px] overflow-hidden mb-4">
+        <div class="relative w-full h-full overflow-hidden rounded-3xl" style="background-color:#13162D">
+          <img src="https://www.scaler.com/topics/images/smart-attendance-system-using-face-recognition-1.webp" alt="Project 2 Background" class="w-full h-full object-cover">
+        </div>
+        <!-- <img src="" alt="Cover" class="z-10 absolute bottom-0"> -->
+      </div>
+      <h2 class="font-bold text-xl text-white">Project 2: Face Recognition Attendance Automation</h2>
+      <p class="text-sm text-gray-400 mt-2">Automated attendance system using face recognition with dlib and OpenCV, storing data in real-time and optimized
+        for various lighting conditions.<br>
+        Enhanced recognition accuracy by 20%, ensuring reliable tracking under diverse conditions.<br>
+        Enabled efficient, seamless tracking and storage of attendance records, reducing manual effort and ensuring data
+        integrity.<br>
+        Reduced manual effort by 70% with real-time data storage.</p>
+      <div class="flex items-center justify-between mt-5">
+        <div class="flex items-center">
+          <!-- Add your project tech icons here -->
+          <div class="border border-white/[0.2] rounded-full black-gradient w-8 h-8 flex justify-center items-center">
+            <img src="images/attendance.jpg" alt="Next.js Icon" class="p-2">
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <p class="font-medium text-purple">Check Live Site</p>
+          <img alt="Arrow" loading="lazy" width="15" height="15" decoding="async" class="object-contain" style="color:transparent" src="arrow.svg">
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="relative p-6 rounded-2xl shadow-lg bg-gray-800 border border-white/[0.1]">
+      <div class="relative flex items-center justify-center w-full h-[300px] overflow-hidden mb-4">
+        <div class="relative w-full h-full overflow-hidden rounded-3xl" style="background-color:#13162D">
+          <img src="images/gesture.webp" alt="Project 3 Background" class="w-full h-full object-cover">
+        </div>
+        <!-- <img src="" alt="Cover" class="z-10 absolute bottom-0"> -->
+      </div>
+      <h2 class="font-bold text-xl text-white">Project 3: Gesture-Controlled Hybrid Light Intensity System</h2>
+      <p class="text-sm text-gray-400 mt-2">Developed a hybrid lighting system combining traditional controls with gesture recognition for efficient light
+        intensity modulation.<br>
+        Utilized OpenCV and Deep Learning to enable real-time gesture detection and dynamic lighting adjustments.<br>
+        Integrated hardware with microcontrollers (e.g., Arduino/Raspberry Pi) for seamless operation.<br>
+        Reduced power consumption by 15% and achieved 90% user approval.
+        </p>
+      <div class="flex items-center justify-between mt-5">
+        <div class="flex items-center">
+          <!-- Add your project tech icons here -->
+          <div class="border border-white/[0.2] rounded-full black-gradient w-8 h-8 flex justify-center items-center">
+            <img src="images/light.png" alt="Next.js Icon" class="p-2">
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <p class="font-medium text-purple">Check Live Site</p>
+          <img alt="Arrow" loading="lazy" width="15" height="15" decoding="async" class="object-contain" style="color:transparent" src="arrow.svg">
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 4 -->
+    <div class="relative p-6 rounded-2xl shadow-lg bg-gray-800 border border-white/[0.1]">
+      <div class="relative flex items-center justify-center w-full h-[300px] overflow-hidden mb-4">
+        <div class="relative w-full h-full overflow-hidden rounded-3xl" style="background-color:#13162D">
+          <img src="images/secure.jpg" alt="Project 4 Background" class="w-full h-full object-cover">
+        </div>
+        <!-- <img src="/p4.svg" alt="Cover" class="z-10 absolute bottom-0"> -->
+      </div>
+      <h2 class="font-bold text-xl text-white">Project 4: One-Time Student Verification through a Mobile Application </h2>
+      <p class="text-sm text-gray-400 mt-2">Designed secure OTP-based verification, reducing process time by 40%.<br>
+        Enabled restricted access to app features for verified users, enhancing security and usability.<br>
+        Streamlined the registration process, reducing verification time and improving user experience.<br>
+        Successfully tested and onboarded [specific number] of users, ensuring reliability and scalability.<br>
+        .</p>
+      <div class="flex items-center justify-between mt-5">
+        <div class="flex items-center">
+          <!-- Add your project tech icons here -->
+          <div class="border border-white/[0.2] rounded-full black-gradient w-8 h-8 flex justify-center items-center">
+            <img src="images/secure.jpg" alt="Next.js Icon" class="p-2">
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <p class="font-medium text-purple">Check Live Site</p>
+          <img alt="Arrow" loading="lazy" width="15" height="15" decoding="async" class="object-contain" style="color:transparent" src="arrow.svg">
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 5 -->
+    <div class="relative p-6 rounded-2xl shadow-lg bg-gray-800 border border-white/[0.1]">
+      <div class="relative flex items-center justify-center w-full h-[300px] overflow-hidden mb-4">
+        <div class="relative w-full h-full overflow-hidden rounded-3xl" style="background-color:#13162D">
+          <img src="images/John_DP.jpeg" alt="Project 5 Background" class="w-full h-full object-cover">
+        </div>
+        <!-- <img src="/p4.svg" alt="Cover" class="z-10 absolute bottom-0"> -->
+      </div>
+      <h2 class="font-bold text-xl text-white">Project 5: E-Commerce Platform</h2>
+      <p class="text-sm text-gray-400 mt-2">Developed a full-stack e-commerce platform using React, Node.js, and MongoDB, with features like user authentication and product search.</p>
+      <div class="flex items-center justify-between mt-5">
+        <div class="flex items-center">
+          <!-- Add your project tech icons here -->
+          <div class="border border-white/[0.2] rounded-full black-gradient w-8 h-8 flex justify-center items-center">
+            <img src="/next.svg" alt="Next.js Icon" class="p-2">
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <p class="font-medium text-purple">Check Live Site</p>
+          <img alt="Arrow" loading="lazy" width="15" height="15" decoding="async" class="object-contain" style="color:transparent" src="arrow.svg">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      fetch('navbar.html')
+        .then(response => response.text())
+        .then(data => {
+          document.body.insertAdjacentHTML('afterbegin', data);
+        });
+    });
+  </script>
+</body>
+
+</html>
