@@ -102,6 +102,38 @@ body {
     line-height: 1.5;
     color: #ffffff;
 }
+
+@media (max-width: 768px) {
+    .home-section {
+        padding: 1rem;
+    }
+    .home-content {
+        text-align: center;
+    }
+    .home-header {
+        width: 100%;
+        padding-left: 0;
+    }
+    .heading, .heading-name {
+        font-size: 1.8em;
+    }
+    .study img {
+        width: 300px;
+        height: 300px;
+        margin-top: 1rem;
+    }
+    .home-about-description p {
+        font-size: 1em;
+    }
+    .home-about-section {
+        padding: 2rem 1rem;
+    }
+    .home-social-icons {
+        font-size: 1.5em;
+        margin: 0 10px;
+    }
+}
+
 /* Navbar container */
 .navbar {
     background-color: #182848; /* Updated dark blue color */
@@ -128,7 +160,7 @@ body {
 
 .navbar.scrolled {
     background: rgba(30, 58, 138, 1); /* Slightly darker blue on scroll */
-    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 10px rgba(255, 0, 0, 0.2);
 }
 
 /* Navbar items */
@@ -138,7 +170,7 @@ body {
 }
 
 .nav-link {
-    color: #d1d1d1; /* Light gray text */
+    color: #ffffff; /* Light gray text */
     font-size: 1rem;
     text-decoration: none;
     position: relative;
@@ -148,7 +180,7 @@ body {
 /* Add animation on click */
 .nav-link:active {
     transform: scale(0.9); /* Shrinks slightly on click */
-    color: #ff7f50; /* Coral color on click */
+    color: #800080; /* Coral color on click */
 }
 
 .nav-link:hover {
@@ -201,10 +233,16 @@ body {
     left: 50%;
     width: 0%;
     height: 2px;
-    background-color: #ff7f50; /* Coral color */
+    background-color: #800080; /* Coral color */
     transition: all 0.3s ease-in-out;
     transform: translateX(-50%);
 }
+
+#navbar-placeholder {
+    display: block;
+    z-index: 1000;
+  }
+  
 
 .nav-link:hover::before {
     width: 100%;

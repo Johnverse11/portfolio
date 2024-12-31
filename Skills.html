@@ -53,18 +53,49 @@
     </style>
 </head>
 <body>
-    <div id="navbar-placeholder"></div>
+    <!-- Navbar Container -->
+    <div>   
+        <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Johnpaul Addakula</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                <a class="nav-link text-white" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link text-white" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link text-white" href="Skills.html">Skills</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link text-white" href="resume.html">Resume</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link text-white" href="project.html">Projects</a>
+                </li>
+            </ul>
+            </div>
+        </div>
+        </nav>
+    </div>   
 
     <script>
-        // Dynamically load the navbar from navbar.html
-        fetch('navbar.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navbar-placeholder').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading navbar:', error));
+        // Add the scrolled class to change navbar appearance on scroll
+        window.addEventListener('scroll', function () {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+        });
     </script>
-
+    <!-- Main Content -->
     <div class="container">
         <section class="skills">
             <h2>Skills</h2>
