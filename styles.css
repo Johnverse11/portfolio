@@ -102,75 +102,129 @@ body {
     line-height: 1.5;
     color: #ffffff;
 }
-
+/* Navbar container */
 .navbar {
-    background-color: #182848; /* Dark background */
-    border-bottom: 3px solid #182848; /* Add a bright border */
+    background-color: #182848; /* Updated dark blue color */
+    position: fixed;
+    top: 10px; /* Distance from the top */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust to the center */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1000; /* Ensure it floats above other elements */
+    width: auto; /* Set width dynamically based on content */
+    padding: 10px 20px; /* Add spacing around content */
+    border-radius: 10px; /* Rounded corners for floating effect */
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Floating shadow effect */
 }
 
+/* Navbar brand */
 .navbar-brand {
     font-size: 1.8rem;
-    color: #fff;
+    color: #ffffff; /* White text for brand */
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
-.navbar-brand:hover {
-    color: #000000;
+.navbar.scrolled {
+    background: rgba(30, 58, 138, 1); /* Slightly darker blue on scroll */
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Navbar items */
+.navbar-nav {
+    display: flex;
+    gap: 20px; /* Space between navbar items */
 }
 
 .nav-link {
     color: #d1d1d1; /* Light gray text */
-    font-size: 1.1rem;
-    transition: color 0.3s ease;
+    font-size: 1rem;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+/* Add animation on click */
+.nav-link:active {
+    transform: scale(0.9); /* Shrinks slightly on click */
+    color: #ff7f50; /* Coral color on click */
 }
 
 .nav-link:hover {
-    color: #000000;
+    color: #ffffff; /* Highlighted text color */
 }
 
-.nav-item.dropdown:hover .dropdown-menu {
-    display: block;
-}
-
+/* Hamburger menu for mobile */
 .navbar-toggler {
     border: none;
     background-color: transparent;
 }
 
 .navbar-toggler-icon {
-    background-color: #000000; /* Toggler icon color */
+    background-color: #ffffff; /* Toggler icon color */
+    width: 30px; /* Standard width for toggler icon */
+    height: 3px; /* Standard height for toggler icon bar */
+    border-radius: 2px; /* Smooth edges */
+    position: relative;
 }
 
-.dropdown-menu {
-    background-color: #032e59;
-    border-radius: 0;
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+    content: "";
+    background-color: #ffffff; /* Same color as icon */
+    width: 30px;
+    height: 3px;
+    border-radius: 2px;
+    position: absolute;
+    left: 0;
+    transition: all 0.3s ease;
 }
 
-.dropdown-item {
-    color: #d1d1d1;
-    transition: background-color 0.3s ease;
+.navbar-toggler-icon::before {
+    top: -8px;
 }
 
-.dropdown-item:hover {
-    background-color: #000000;
-    color: #fff;
+.navbar-toggler-icon::after {
+    top: 8px;
 }
 
-.navbar-nav.ms-auto {
-    font-weight: 500;
+body {
+    padding-top: 80px; /* Adjust for fixed navbar */
 }
 
-/* Add smooth transition for background change */
-.navbar a {
+/* Animation on click for the navbar items */
+.nav-link::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0%;
+    height: 2px;
+    background-color: #ff7f50; /* Coral color */
     transition: all 0.3s ease-in-out;
+    transform: translateX(-50%);
 }
 
-.navbar a:hover {
-    background-color: #800080;
-    color: #fff;
-    border-radius: 20px;
+.nav-link:hover::before {
+    width: 100%;
 }
+
+@media (max-width: 768px) {
+    .navbar {
+        width: 90%; /* Adjust width on smaller screens */
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-link {
+        padding: 10px 0; /* Space between vertical items */
+    }
+}
+
 
 /* Social Media Section */
 #intro-page {

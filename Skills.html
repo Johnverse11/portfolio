@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Add Bootstrap CSS in your head -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Add Bootstrap JS in your head (for toggling navbar in mobile view) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <title>Skills & Projects</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color:  rgb(22, 0, 50);
+            background-color: rgb(22, 0, 50);
             color: #ffffff;
         }
         .container {
             padding: 20px;
+            margin-top: 100px; /* Adjust for fixed navbar */
         }
         h2 {
             color: #f7f7f7;
@@ -26,13 +27,12 @@
             margin: 20px 0;
         }
         .skill-item, .project-item {
-            background-color: rgba(24, 40, 72, 0.7); /* Adjusted for translucency */
+            background-color: rgba(24, 40, 72, 0.7);
             padding: 10px;
             margin: 10px 0;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-        
         .skill-item h3, .project-item h3 {
             margin: 0;
             color: #ffffff;
@@ -53,6 +53,17 @@
     </style>
 </head>
 <body>
+    <div id="navbar-placeholder"></div>
+
+    <script>
+        // Dynamically load the navbar from navbar.html
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading navbar:', error));
+    </script>
 
     <div class="container">
         <section class="skills">
@@ -65,7 +76,6 @@
                 <p><strong>Technologies:</strong> RESTful APIs, Docker, AWS</p>
                 <p><strong>Specialties:</strong> Machine Learning, Distributed Systems, Data Storage Solutions, Scalability</p>
             </div>
-
             <div class="skill-item">
                 <h3>Soft Skills</h3>
                 <ul>
@@ -80,58 +90,22 @@
 
         <section class="projects">
             <h2>Projects</h2>
-            
             <div class="project-item">
-                <h3>Machine Learning Intern - Code Alpha (April 2024 - May 2024)</h3>
+                <h3>Machine Learning Intern - Code Alpha</h3>
                 <p><strong>Developed a Disease Prediction Model:</strong> Built a machine learning model to predict diseases based on user input and medical datasets.</p>
                 <p><strong>Implemented a Handwritten Recognition System:</strong> Designed and trained a neural network for accurate recognition of handwritten text using TensorFlow/Keras.</p>
                 <p><strong>Created a Credit Score Model:</strong> Engineered a predictive model to assess credit scores using data preprocessing, feature engineering, and regression techniques.</p>
             </div>
-
-            <div class="project-item">
-                <h3>Face Recognition Attendance Automation</h3>
-                <p>Automated attendance system using face recognition with dlib and OpenCV, enhancing accuracy by 20% and reducing manual effort by 70%.</p>
-            </div>
-
-            <div class="project-item">
-                <h3>One-Time Student Verification through a Mobile Application</h3>
-                <p>Developed OTP-based verification, streamlining the registration process and reducing verification time by 40%.</p>
-            </div>
-
-            <div class="project-item">
-                <h3>Gesture-Controlled Hybrid Light Intensity System</h3>
-                <p>Built a system combining traditional controls with gesture recognition for dynamic lighting adjustments, achieving 95% gesture detection accuracy.</p>
-            </div>
-
-            <div class="project-item">
-                <h3>Aether Mind: Job and Course Discovery through Conversational AI</h3>
-                <p>Developed a Flask-based app using Google Gemini API for personalized job and course recommendations with 90% NLP accuracy.</p>
-            </div>
-        </section>
-
-        <section class="project-item">
-            <h2>Certifications</h2>
-            <ul>
-                <li>Ethics in the Age of Generative AI</li>
-                <li>MS Innovative India Coding Championship - Coding Ninjas</li>
-                <li>Data Visualization: Empowering Business with Effective Insights - Tata</li>
-                <li>Forage Problem Solving (Basic) - HackerRank</li>
-                <li>Python (Basic) - HackerRank</li>
-            </ul>
+            <!-- Add more projects here -->
         </section>
     </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-          fetch('navbar.html')
-            .then(response => response.text())
-            .then(data => {
-              document.body.insertAdjacentHTML('afterbegin', data);
-            });
-        });
-      </script>
 
     <footer>
         <p>Contact: johnshalem11@gmail.com | Phone: +91 97056 37155</p>
     </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script> 
 </body>
 </html>

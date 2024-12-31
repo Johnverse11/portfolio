@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Add Bootstrap CSS in your head -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Add Bootstrap JS in your head (for toggling navbar in mobile view) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <title>My Portfolio</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -22,56 +18,26 @@
         <div class="star"></div>
         <div class="star"></div>
     </div>
-    
-    <nav class="navbar navbar-expand-md navbar-light fixed-top">
-        <div class="container">
-            <a href="/" class="d-flex navbar-brand">
-                <img src="data:image/png;base64,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"
-                    alt="Logo" class="d-inline-block align-top" width="70" height="70">
-                <span class="h4 ms-3">Johnpauladdakula.</span>
-            </a>
+    <!-- Placeholder for Navbar -->
+    <div id="navbar-placeholder"></div>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <!-- Script to Load Navbar Dynamically -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        fetch('navbar.html') // Ensure the correct path to your 'navbar.html'
+        .then(response => {
+            if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.text();
+        })
+        .then(data => {
+            document.getElementById('navbar-placeholder').innerHTML = data;
+        })
+        .catch(error => console.error('Error loading navbar:', error));
+    });
+    </script>
 
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a href="#home" class="nav-link">HOME</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#about" class="nav-link">ABOUT</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="Skills.html" class="nav-link">SKILLS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="project.html" class="nav-link">PROJECTS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="resume.html" class="nav-link">RESUME</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#contact" class="nav-link">Contact</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Services
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-                            <li><a class="dropdown-item" href="#service1">Web Development</a></li>
-                            <li><a class="dropdown-item" href="#service2">App Development</a></li>
-                            <li><a class="dropdown-item" href="#service3">Consulting</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    
     <div id="home" class="home-section container-fluid" style="position: relative;">
         <div class="home-content container" style="position: relative; z-index: 1;">
             <div class="row" style="display: flex; justify-content: space-between; align-items: center;">
@@ -237,5 +203,9 @@
             });
         });
       </script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="script.js"></script> <!-- Include the scroll effect script -->
+      
+      
 </body>
 </html>
