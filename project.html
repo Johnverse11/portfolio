@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 
 <head>
@@ -7,72 +7,33 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>My Projects</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Bootstrap JS (including Popper) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
+  
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    .black-gradient {
-      background: linear-gradient(145deg, #4b6cb7, #182848);
-    }
 
-    .text-purple {
-      color: #9b59b6;
+  <style>
+    .scrolled {
+      background-color: rgba(31, 41, 55, 0.9);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-/* 
-    body {
-      padding-top: 70px; 
-    } */
   </style>
 </head>
 
 <body class="bg-gray-900 text-white font-roboto">
-  <!-- Navbar Container -->
-      <!-- Navbar Container -->
-      <div>   
-        <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">Johnpaul Addakula</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                <a class="nav-link text-white" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link text-white" href="#about">About</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link text-white" href="Skills.html">Skills</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link text-white" href="resume.html">Resume</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link text-white" href="project.html">Projects</a>
-                </li>
-            </ul>
-            </div>
-        </div>
-        </nav>
-    </div>   
+  <!-- Navbar (Tailwind) -->
+  <nav class="fixed top-0 left-0 w-full  py-4 px-6 z-10 transition-all duration-300" id="navbar">
+    <div class="flex items-center justify-between">
+      <a class="text-white text-2xl font-bold" href="index.html">Jp.</a>
+      <div class="flex space-x-6">
+        <a href="index.html" class="text-white hover:text-gray-400 transition duration-200">Home</a>
+        <a href="about.html" class="text-white hover:text-gray-400 transition duration-200">About</a>
+        <a href="Skills.html" class="text-white hover:text-gray-400 transition duration-200">Skills</a>
+        <a href="resume.html" class="text-white hover:text-gray-400 transition duration-200">Resume</a>
+        <a href="project.html" class="text-white hover:text-gray-400 transition duration-200">Projects</a>
+      </div>
+    </div>
+  </nav>
 
-    <script>
-        // Add the scrolled class to change navbar appearance on scroll
-        window.addEventListener('scroll', function () {
-        const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-        });
-    </script>
-<div>
   <!-- Main Content Container -->
   <div id="main-content" class="pt-20">
     <!-- Heading for the projects section -->
@@ -195,9 +156,67 @@
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="script.js"></script> <!-- Include your custom JS if necessary -->
+  <script>
+    // Scroll-based navbar style toggle
+    window.addEventListener("scroll", () => {
+      const navbar = document.querySelector("#navbar");
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <footer class="bg-gray-800 text-white text-center py-6">
+    <div class="container mx-auto">
+      <div class="flex justify-center space-x-6">
+        <a href="https://twitter.com" class="text-white hover:text-gray-400 transition duration-200">
+          <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                height="24"
+                width="24"
+                fill="currentColor"
+              >
+                <path
+                  d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"
+                ></path>
+              </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/johnpaul-addakula-371348224/" class="text-white hover:text-gray-400 transition duration-200">
+          <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"
+                height="24"
+                width="24"
+                fill="currentColor"
+              >
+                <path
+                  d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"
+                ></path>
+              </svg>
+        </a>
+        <a href="https://github.com/Johnpauladdakula" class="text-white hover:text-gray-400 transition duration-200">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            height="24"
+            width="24"
+            fill="currentColor"
+          >
+            <path
+              d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.397.6.111.826-.261.826-.58v-2.284c-3.338.727-4.04-1.566-4.04-1.566-.544-1.383-1.332-1.752-1.332-1.752-1.089-.743.083-.727.083-.727 1.204.084 1.835 1.242 1.835 1.242.839 1.444 2.204 1.026 2.74.784.085-.624.328-1.026.598-1.26-2.672-.301-5.468-1.34-5.468-5.94 0-1.313.467-2.384 1.236-3.221-.124-.301-.534-1.507.116-3.15 0 0 1.009-.322 3.311 1.231 1.098-.305 2.28-.459 3.44-.462 1.16.003 2.342.157 3.44.462 2.302-1.553 3.311-1.231 3.311-1.231.65 1.644.24 2.85.116 3.15.77.837 1.236 1.908 1.236 3.221 0 4.6-2.8 5.639-5.468 5.94.27.242.53.717.53 1.445v2.684c0 .321.226.693.826.58A11.938 11.938 0 0 0 24 12c0-6.627-5.373-12-12-12z"
+            ></path>
+          </svg>
+        </a>
+      </div>
+      <p class="mt-4 text-gray-400">&copy; 2025 Johnpaul Addakula. All rights reserved.</p>
+    </div>
+  </footer>
 </body>
-
-
 </html>

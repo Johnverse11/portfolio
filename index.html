@@ -32,101 +32,222 @@
         });
     </script>
 
-    <!-- Home Section -->
-    <section id="home" class="home-section container-fluid">
-        <div class="container d-flex flex-column align-items-center">
-            <!-- Heading -->
-            <div class="home-header text-center w-100">
-                <h1 class="heading">Hi There! <span class="wave">👋🏻</span></h1>
-                <h1 class="heading-name">I'M <strong class="main-name"> 
-                    <span id="typewriter"></span>
-                </strong></h1>
+    <!-- Home and About Section -->
+    <section id="home-about" class="container-fluid d-flex flex-column align-items-center justify-content-center" style="min-height: 100vh;">
+        <div class="container d-flex flex-column flex-lg-row align-items-center justify-content-between">
+            <!-- Home Panel (Text Panel) -->
+            <div class="home-panel text-center text-lg-start w-100 mb-5 mb-lg-0">
+                <h1 class="text-center mb-5"><br>
+                    Hi There! <span class="wave">👋🏻</span><br>
+                    I'M <span class="text-blue" style="font-family:cursive; font-weight: bold; text-shadow: 2px 2px 4px #0a1325;">JOHN PAUL ADDAKULA</span>
+                </h1>
+                <div class="Typewriter w-100">
+                    <span class="Typewriter__wrapper"></span>
+                </div>
+                <style>
+                    .wave {
+                        display: inline-block;
+                        animation: wave-animation 2s infinite;
+                    }
+
+                    @keyframes wave-animation {
+                        0% { transform: rotate(0deg); }
+                        10% { transform: rotate(14deg); }
+                        20% { transform: rotate(-8deg); }
+                        30% { transform: rotate(14deg); }
+                        40% { transform: rotate(-4deg); }
+                        50% { transform: rotate(10deg); }
+                        60% { transform: rotate(0deg); }
+                        100% { transform: rotate(0deg); }
+                    }
+
+                    .text-blue {
+                        color: #007bff;
+                    }
+                </style>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        const texts = ["Aspiring Data Scientist", "AI Enthusiast", "Machine Learning Practitioner"];
+                        const typewriterElement = document.querySelector(".Typewriter__wrapper");
+                        typewriterElement.style.fontFamily = "cursive";
+                        typewriterElement.style.fontSize = "1.5rem";
+                        let index = 0;
+                        let charIndex = 0;
+                        const speed = 150;
+                        const delayBetweenTexts = 2000;
+
+                        function typeWriter() {
+                            if (charIndex < texts[index].length) {
+                                typewriterElement.innerHTML += texts[index].charAt(charIndex);
+                                charIndex++;
+                                setTimeout(typeWriter, speed);
+                            } else {
+                                setTimeout(eraseText, delayBetweenTexts);
+                            }
+                        }
+
+                        function eraseText() {
+                            if (charIndex > 0) {
+                                typewriterElement.innerHTML = texts[index].substring(0, charIndex - 1);
+                                charIndex--;
+                                setTimeout(eraseText, speed);
+                            } else {
+                                index = (index + 1) % texts.length;
+                                setTimeout(typeWriter, speed);
+                            }
+                        }
+
+                        typeWriter();
+                    });
+                </script>
+                <div class="Typewriter w-100">
+                    <span class="Typewriter__wrapper"></span>
+                </div>
+                </script>
             </div>
 
-            <!-- Image -->
-            <div class="study my-4">
-                <img src="https://soumyajit.vercel.app/static/media/home-main.541f8179af8209ce03ccf2178fe62dbf.svg" 
-                     class="img-fluid rounded-circle" 
-                     alt="avatar" 
-                     style="width: 300px; height: 300px; object-fit: cover;">
-            </div>
+            <!-- About Panel (Image Panel) -->
+            <div class="about-panel text-left text-lg-start w-100" style="background-color: #0a1325; padding: 2rem; border-radius: 25px;">
+                <h1 class="text-center mb-5">LET ME <span class="text-blue">INTRODUCE</span> MYSELF</h1>
+                <div class="row align-items-center">
+                    <!-- Left Box for Text (for Larger screens) -->
+                    <div class="home-about-description col-12 col-lg-6">
+                        <p>
+                            I am proficient in languages like <strong class="text-blue">Python, JavaScript, and R.</strong> 
+                            I have hands-on experience with frameworks like 
+                            <strong class="text-blue">Flask</strong> and tools such as 
+                            <strong class="text-blue">OpenCV and Scikit-learn.</strong>
+                        </p>
+                        <p>
+                            My primary interests lie in building cutting-edge 
+                            <strong class="text-blue">Web Technologies, Products, and Machine Learning models.</strong>
+                        </p>
+                        <p>
+                            I channel my enthusiasm for innovation into creating scalable, efficient applications 
+                            and integrating technologies like 
+                            <strong class="text-blue">RESTful APIs, Docker, and AWS</strong>.
+                        </p>
+                    </div>
 
-            <!-- Typewriter Text -->
-            <div class="Typewriter text-center w-100">
-                <span class="Typewriter__wrapper">Aspiring Data Scientist and AI Enthusiast | Machine Learning Practitioner</span>
-                <p>Delivering efficient, reliable, and scalable tech solutions with a growth mindset.</p>
+                    <!-- Right Box for Image -->
+                    <div class="myAvtar col-12 col-lg-6 text-center mb-4 mb-lg-0">
+                        <img src="images/image.png" 
+                            alt="Profile Picture" 
+                            class="img-fluid" 
+                            style="border-radius: 25px; max-width: 300px;">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="home-about-section py-5" style="background-color: #0a1325;">
-        <div class="container">
-            <h1 class="text-center mb-5">LET ME <span class="text-purple">INTRODUCE</span> MYSELF</h1>
-            <div class="row align-items-center">
-                <!-- Left Box </div>for Image -->
-                <div class="myAvtar col-md-6 text-center mb-4 mb-md-0">
-                    <img src="images/image.png" 
-                         alt="Profile Picture" 
-                         class="img-fluid" style="border-radius: 25px;"
-                         style="max-width: 300px;">
-                </div>
+    <!-- Additional Styling for Mobile Adjustment -->
+    <style>
+        /* Mobile-first adjustments */
+        @media (max-width: 767px) {
+            #home-about .home-panel h1 {
+                font-size: 1.5rem; /* Adjust size for mobile */
+            }
 
-                <!-- Right Box for Text -->
-                <div class="home-about-description col-md-6">
-                    <p>
-                        I am proficient in languages like <strong class="purple">Python, JavaScript, and R.</strong> 
-                        I have hands-on experience with frameworks like 
-                        <strong class="purple">Flask</strong> and tools such as 
-                        <strong class="purple">OpenCV and Scikit-learn.</strong>
-                    </p>
-                    <p>
-                        My primary interests lie in building cutting-edge 
-                        <strong class="purple">Web Technologies, Products, and Machine Learning models.</strong>
-                    </p>
-                    <p>
-                        I channel my enthusiasm for innovation into creating scalable, efficient applications 
-                        and integrating technologies like 
-                        <strong class="purple">RESTful APIs, Docker, and AWS</strong>.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+            #home-about .about-panel {
+                padding: 1.5rem; /* Reduce padding for mobile */
+            }
+
+            #home-about .myAvtar img {
+                max-width: 80%; /* Make the image smaller for mobile */
+            }
+
+            #home-about .home-about-description p {
+                font-size: 0.9rem; /* Adjust font size for mobile */
+            }
+        }
+
+        /* Larger screens like tablets and up */
+        @media (min-width: 768px) and (max-width: 991px) {
+            #home-about .home-panel h1 {
+                font-size: 1.75rem;
+            }
+
+            #home-about .about-panel {
+                padding: 1.75rem; /* Adjust padding */
+            }
+
+            #home-about .myAvtar img {
+                max-width: 250px; /* Adjust image size for tablets */
+            }
+        }
+
+        /* Larger screens like laptops and desktops */
+        @media (min-width: 992px) {
+            #home-about .home-panel h1 {
+                font-size: 2.5rem;
+            }
+
+            #home-about .about-panel {
+                padding: 2rem;
+            }
+
+            #home-about .myAvtar img {
+                max-width: 300px; /* Larger image size */
+            }
+
+            /* Home panel (text) on the left, image on the right */
+            #home-about .container {
+                flex-direction: row; /* Align text and image side by side */
+            }
+
+            #home-about .home-panel,
+            #home-about .about-panel {
+                width: 50%; /* Ensure each section takes half of the space */
+            }
+        }
+    </style>
 
     <!-- Social Section -->
     <div id="intro-page" style="display: block; text-align: center; padding: 2rem;">
         <h1>FIND ME ON</h1>
         <p>Feel free to connect with me</p>
-        <div>
-            <!-- Social Media Icons -->
+        <div class="d-flex justify-content-center flex-wrap">
+            <!-- LinkedIn -->
             <a href="https://www.linkedin.com/in/johnpaul-addakula-371348224" target="_blank" rel="noreferrer" class="icon-colour home-social-icons">
-                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="1em" width="1em" fill="currentColor">
                     <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path>
                 </svg>
             </a>
-
+        
+            <!-- GitHub -->
             <a href="https://github.com/Johnpauladdakula" target="_blank" rel="noreferrer" class="icon-colour home-social-icons">
-                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="1em" width="1em" fill="currentColor">
                     <path d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.397.6.111.826-.261.826-.58v-2.284c-3.338.727-4.04-1.566-4.04-1.566-.544-1.383-1.332-1.752-1.332-1.752-1.089-.743.083-.727.083-.727 1.204.084 1.835 1.242 1.835 1.242.839 1.444 2.204 1.026 2.74.784.085-.624.328-1.026.598-1.26-2.672-.301-5.468-1.34-5.468-5.94 0-1.313.467-2.384 1.236-3.221-.124-.301-.534-1.507.116-3.15 0 0 1.009-.322 3.311 1.231 1.098-.305 2.28-.459 3.44-.462 1.16.003 2.342.157 3.44.462 2.302-1.553 3.311-1.231 3.311-1.231.65 1.644.24 2.85.116 3.15.77.837 1.236 1.908 1.236 3.221 0 4.6-2.8 5.639-5.468 5.94.27.242.53.717.53 1.445v2.684c0 .321.226.693.826.58A11.938 11.938 0 0 0 24 12c0-6.627-5.373-12-12-12z"></path>
                 </svg>
             </a>
-
+        
+            <!-- Instagram -->
             <a href="https://www.instagram.com" target="_blank" rel="noreferrer" class="icon-colour home-social-icons">
-                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M512 378.7c-73.4 0-133.3 59.9-133.3 133.3S438.6 645.3 512 645.3 645.3 585.4 645.3 512 585.4 378.7 512 378.7zM911.8 512c0-55.2.5-109.9-2.6-165-3.1-64-17.7-120.8-64.5-167.6-46.9-46.9-103.6-61.4-167.6-64.5-55.2-3.1-109.9-2.6-165-2.6-55.2 0-109.9-.5-165 2.6-64 3.1-120.8 17.7-167.6 64.5C132.6 226.3 118.1 283 115 347c-3.1 55.2-2.6 109.9-2.6 165s-.5 109.9 2.6 165c3.1 64 17.7 120.8 64.5 167.6 46.9 46.9 103.6 61.4 167.6 64.5 55.2 3.1 109.9 2.6 165 2.6 55.2 0 109.9-.5 165-2.6 64-3.1 120.8-17.7 167.6-64.5 46.8-46.8 61.3-103.6 64.5-167.6 3.1-55.2 2.6-109.9 2.6-165z"></path>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" height="1em" width="1em" fill="currentColor">
+                    <path d="M512 378.7c-73.4 0-133.3 59.9-133.3 133.3S438.6 645.3 512 645.3 645.3 585.4 645.3 512 585.4 378.7 512 378.7zM911.8 512c0-55.2.5-109.9-2.6-165-3.1-64-17.7-120.8-64.5-167.6-46.9-46.9-103.6-61.4-167.6-64.5-55.2-3.1-109.9-2.6-165-2.6-55.2 0-109.9-.5-165 2.6-64 3.1-120.8 17.7-167.6 64.5C132.6 226.3 118.1 283 115 347c-3.1 55.2-2.6 109.9-2.6 165s-.5 109.9 2.6 165c3.1 64 17.7 120.8 64.5 167.6 46.9 46.9 103.6 61.4 167.6 64.5 55.2 3.1 109.9 2.6 165 2.6 55.2 0 109.9.5 165-2.6 64-3.1 120.8-17.7 167.6-64.5 46.9-46.9 61.4-103.6 64.5-167.6 3.2-55.1 2.6-109.8 2.6-165zM512 717.1c-113.5 0-205.1-91.6-205.1-205.1S398.5 306.9 512 306.9 717.1 398.5 717.1 512 625.5 717.1 512 717.1zm213.5-370.7c-26.5 0-47.9-21.4-47.9-47.9s21.4-47.9 47.9-47.9 47.9 21.4 47.9 47.9a47.84 47.84 0 0 1-47.9 47.9z"></path>
                 </svg>
             </a>
-
-            <a href="https://twitter.com" target="_blank" rel="noreferrer" class="icon-colour home-social-icons">
-                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M928 254.3c-30.6 13.2-63.9 22.7-98.2 26.4a170.1 170.1 0 0 0 75-94 336.64 336.64 0 0 1-108.2 41.2A170.1 170.1 0 0 0 672 174c-94.5 0-170.5 76.6-170.5 170.6 0 13.2 1.6 26.4 4.2 39.1-141.5-7.4-267.7-75-351.6-178.5a169.32 169.32 0 0 0-23.2 86.1c0 59.2 30.1 111.4 76 142.1a172 172 0 0 1-77.1-21.7v2.1c0 82.9 58.6 151.6 136.7 167.4a180.6 180.6 0 0 1-44.9 5.8c-11.1 0-21.6-1.1-32.2-2.6C211 652 273.9 701.1 348.8 702.7c-58.6 45.9-132 72.9-211.7 72.9-14.3 0-27.5-.5-41.2-2.1C171.5 822 261.2 850 357.8 850 671.4 850 843 590.2 843 364.7c0-7.4 0-14.8-.5-22.2 33.2-24.3 62.3-54.4 85.5-88.2z"></path>
+        
+            <!-- X (Twitter) -->
+            <a href="https://x.com" target="_blank" rel="noreferrer" class="icon-colour home-social-icons">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="1em" width="1em" fill="currentColor">
+                    <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"></path>
+                </svg>
+            </a>
+        
+            <!-- Mail -->
+            <a href="mailto:johnshalem11@gmail.com" class="icon-colour home-social-icons">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="1em" width="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
                 </svg>
             </a>
         </div>
+        
     </div>
 
-    <script>
+    <!-- <script>
         document.addEventListener("DOMContentLoaded", function () {
             const text = "JOHN PAUL ADDAKULA";
             let index = 0;
@@ -141,7 +262,22 @@
             }
             typeWriter();
         });
-    </script>
+    </script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- In the HTML page -->
+    <div id="footer"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    const footerElement = document.getElementById('footer');
+                    if (footerElement) footerElement.innerHTML = data;
+                })
+                .catch(error => console.error('Error loading footer:', error));
+        });
+    </script>
+
 </body>
 </html>

@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skills & Projects</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
     <style>
@@ -13,7 +12,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: rgb(22, 0, 50);
+            background-color: rgba(31, 41, 55);
             color: #ffffff;
         }
         .container {
@@ -23,21 +22,21 @@
         h2 {
             color: #f7f7f7;
         }
-        .skills, .projects {
+        .skills, .Internship {
             margin: 20px 0;
         }
-        .skill-item, .project-item {
+        .skill-item, .Internship-item {
             background-color: rgba(24, 40, 72, 0.7);
             padding: 10px;
             margin: 10px 0;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-        .skill-item h3, .project-item h3 {
+        .skill-item h3, .Internship-item h3 {
             margin: 0;
             color: #ffffff;
         }
-        .project-item p {
+        .Internship-item p {
             margin: 5px 0;
             font-size: 14px;
         }
@@ -51,38 +50,31 @@
             bottom: 0;
         }
     </style>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+    .scrolled {
+        background-color: rgba(31, 41, 55, 0.9);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    </style>
 </head>
-<body>
-    <!-- Navbar Container -->
-    <div>   
-        <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">Johnpaul Addakula</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                <a class="nav-link text-white" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link text-white" href="#about">About</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link text-white" href="Skills.html">Skills</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link text-white" href="resume.html">Resume</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link text-white" href="project.html">Projects</a>
-                </li>
-            </ul>
-            </div>
+
+<body class="bg-gray-900 text-white font-roboto">
+    <!-- Navbar (Tailwind) -->
+    <nav class="fixed top-0 left-0 w-full  py-4 px-6 z-10 transition-all duration-300" id="navbar">
+    <div class="flex items-center justify-between">
+        <a class="text-white text-2xl font-bold" href="index.html">Jp.</a>
+        <div class="flex space-x-6">
+        <a href="index.html" class="text-white hover:text-gray-400 transition duration-200">Home</a>
+        <a href="about.html" class="text-white hover:text-gray-400 transition duration-200">About</a>
+        <a href="Skills.html" class="text-white hover:text-gray-400 transition duration-200">Skills</a>
+        <a href="resume.html" class="text-white hover:text-gray-400 transition duration-200">Resume</a>
+        <a href="project.html" class="text-white hover:text-gray-400 transition duration-200">Projects</a>
         </div>
-        </nav>
-    </div>   
+    </div>
+    </nav>
 
     <script>
         // Add the scrolled class to change navbar appearance on scroll
@@ -119,24 +111,55 @@
             </div>
         </section>
 
-        <section class="projects">
-            <h2>Projects</h2>
-            <div class="project-item">
+        <section class="Internship">
+            <h2>Internship</h2>
+            <div class="Internship-item">
                 <h3>Machine Learning Intern - Code Alpha</h3>
                 <p><strong>Developed a Disease Prediction Model:</strong> Built a machine learning model to predict diseases based on user input and medical datasets.</p>
                 <p><strong>Implemented a Handwritten Recognition System:</strong> Designed and trained a neural network for accurate recognition of handwritten text using TensorFlow/Keras.</p>
                 <p><strong>Created a Credit Score Model:</strong> Engineered a predictive model to assess credit scores using data preprocessing, feature engineering, and regression techniques.</p>
             </div>
-            <!-- Add more projects here -->
+            <!-- Add more Internships here -->
+             <br>
+             <br>
         </section>
     </div>
+    <script>
+        // Scroll-based navbar style toggle
+        window.addEventListener("scroll", () => {
+          const navbar = document.querySelector("#navbar");
+          if (window.scrollY > 50) {
+            navbar.classList.add("scrolled");
+          } else {
+            navbar.classList.remove("scrolled");
+          }
+        });
+    </script>
+    <div id="footer" class="fixed bottom-0 left-0 w-full  text-white text-center py-3">
+        <!-- Footer content will be loaded here -->
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    const footerElement = document.getElementById('footer');
+                    if (footerElement) footerElement.innerHTML = data;
+                })
+                .catch(error => console.error('Error loading footer:', error));
+        });
 
-    <footer>
-        <p>Contact: johnshalem11@gmail.com | Phone: +91 97056 37155</p>
-    </footer>
-
+        window.addEventListener('scroll', () => {
+            const footer = document.getElementById('footer');
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                footer.style.display = 'block';
+            } else {
+                footer.style.display = 'none';
+            }
+        });
+    </script>
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script> 
+    <script src="script.js"></script>
 </body>
 </html>

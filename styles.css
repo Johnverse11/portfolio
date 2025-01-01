@@ -282,15 +282,15 @@ body {
 }
 
 .home-social-icons {
-    margin: 0 30px;
+    margin: 0 15px; /* Adjust margin for spacing */
     display: inline-block;
-    color: #800080;
+    color: #007bff;
     font-size: 40px;
-    width: 70px; /* Adjust the size of the circle */
-    height: 70px; /* Adjust the size of the circle */
+    width: 70px; /* Size of the circle */
+    height: 70px;
     line-height: 60px; /* Center-align the icon vertically */
     text-align: center; /* Center-align the icon horizontally */
-    border: 2px solid #800080; /* Circle border */
+    border: 2px solid #ffffff; /* Circle border */
     border-radius: 50%; /* Makes it a circle */
     transition: all 0.3s ease; /* Smooth transition for hover effect */
 }
@@ -301,10 +301,23 @@ body {
     background-color: #000000; /* Optional hover background color */
 }
 
+/* Media Query for Mobile View */
+@media (max-width: 768px) {
+    .home-social-icons {
+        font-size: 30px; /* Smaller size for icons */
+        width: 50px; /* Adjust the size of the circle */
+        height: 50px; 
+        line-height: 45px; /* Center-align the icon vertically */
+        margin: 0 10px; /* Reduce margin for better alignment */
+    }
 
-.home-header {
-    width: 70%; /* Adjust the percentage to your preference */
-    max-width: 800px; /* Optional: Set a maximum width */
+    #intro-page h1 {
+        font-size: 2rem; /* Adjust heading size for mobile */
+    }
+
+    #intro-page p {
+        font-size: 1rem; /* Adjust text size for mobile */
+    }
 }
 
 /* Flexbox classes for layout */
@@ -418,7 +431,7 @@ body {
     width: 7px;
     height: 7px;
     background: white;
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 8px rgba(0, 38, 255, 0.8);
     border-radius: 50%;
     animation: shooting-star 1.5s linear infinite;
     opacity: 0;
@@ -488,3 +501,33 @@ body {
     width: 100%;  /* Ensure full width */
     overflow: auto;  /* Allow scrolling */
 }
+
+.footer {
+    background-color: #0a1325;
+    padding: 10px 0;
+    color: white;
+    text-align: center;
+  }
+  
+  .footer-copywright h3 {
+    margin: 10px 0;
+    font-size: 1em;
+  }
+  
+  .footer-icons {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    gap: 20px;
+  }
+  
+  .footer-icons svg {
+    transition: color 0.3s;
+    cursor: pointer;
+  }
+  
+  .footer-icons svg:hover {
+    color: #a588c0;
+  }
+  

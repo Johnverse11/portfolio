@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>About John Paul Addakula</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Sea Theme Styling */
+        body {
+            background: linear-gradient(to bottom, #87CEEB, #1E90FF);
+            color: #f8f8f8;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* Navbar styling */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background-color: rgba(30, 144, 255, 0.9);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+
+        .navbar a {
+            color: #fff;
+            font-size: 18px;
+            margin-right: 20px;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #87CEEB;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 50px 0;
+            background: #4682B4;
+            color: #fff;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+        }
+
+        /* About section */
+        .about-section {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 80px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-section h2 {
+            font-size: 1.8rem;
+            color: #1E90FF;
+            text-align: center;
+        }
+
+        .about-section p, .about-section ul {
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .about-section img {
+            border-radius: 50%;
+            max-width: 300px;
+            margin: 20px 0;
+        }
+
+        /* Footer */
+        #footer {
+            background: #1E90FF;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar (Tailwind) -->
+    <nav class="navbar" id="navbar">
+        <div class="flex items-center justify-between">
+            <a class="text-white text-2xl font-bold" href="index.html">Jp.</a>
+            <div class="flex space-x-6">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="Skills.html">Skills</a>
+                <a href="resume.html">Resume</a>
+                <a href="project.html">Projects</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto my-12 p-8 rounded-lg about-section">
+        <section id="home-about" class="flex flex-col items-center justify-center">
+            <div class="flex flex-col lg:flex-row items-center justify-between w-full">
+                <div class="about-panel text-center p-6 rounded-lg w-full">
+                    <h2>Know <span class="text-blue-500">Who I Am</span></h2>
+                    <div class="flex flex-col lg:flex-row items-center">
+                        <div class="home-about-description w-full lg:w-1/2">
+                            <section>
+                                <p>Hi Everyone, I am John Paul Addakula from Hyderabad, India.</p>
+                                <p>I am currently pursuing my Bachelor of Technology in Computer Science (Data Science & AI) at Hindustan Institute of Technology and Science.</p>
+                                <p>Apart from coding, some other activities that I love to do:</p>
+                                <ul class="list-disc list-inside">
+                                    <li>Photography</li>
+                                    <li>Video Editing</li>
+                                    <li>Cooking</li>
+                                </ul>
+                                <p><strong>"Strive to build things that make a difference!"</strong></p>
+                            </section>
+                        </div>
+
+                        <div class="myAvtar w-full lg:w-1/2 text-center">
+                            <img src="https://via.placeholder.com/300" alt="John Paul Addakula">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mt-8">
+            <h2 class="text-blue-600">Educational Background</h2>
+            <ul class="list-disc list-inside">
+                <li><strong>B.Tech in CSE (DS & AI):</strong> Hindustan Institute of Technology and Science, Chennai, India (2021 - Present). CGPA: 8.9 (up to 4th semester).</li>
+                <li><strong>Intermediate (+2) in MPC:</strong> Sri Gayatri Junior College, Telangana, India (2019 - 2021). Percentage: 98%.</li>
+                <li><strong>Secondary School Certificate (SSC):</strong> Hyderabad Talent School, Telangana, India (2019). CGPA: 9.8.</li>
+            </ul>
+        </section>
+
+        <section class="mt-8">
+            <h2 class="text-blue-600">Club Activities</h2>
+            <ul class="list-disc list-inside">
+                <li><strong>Associate PRO:</strong> Rotaract Club of Hindustan University. Contributed to projects, events, and community service with dedication (May 2023 - Present).</li>
+                <li><strong>Blue Screen Programming Club:</strong> Mentored juniors in coding, competitive hackathons, and fostering a vibrant learning community (May 2023 - Present).</li>
+            </ul>
+        </section>
+
+        <section class="mt-8">
+            <h2 class="text-blue-600">Languages</h2>
+            <ul class="list-disc list-inside">
+                <li>English</li>
+                <li>Telugu</li>
+                <li>Hindi</li>
+                <li>Tamil</li>
+            </ul>
+        </section>
+
+        <section class="contact mt-8">
+            <h2 class="text-blue-600">Contact Information</h2>
+            <p><strong>Mobile:</strong> +91 9705637155</p>
+            <p><strong>Email:</strong> <a href="mailto:johnshalem11@gmail.com" class="text-blue-500">johnshalem11@gmail.com</a></p>
+            <p><strong>Address:</strong> Plot No. 18, 2nd Floor, Jakidi Sati Reddy Colony, LB Nagar, Hyderabad, Telangana, 500074</p>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer" class="bg-gray-900 text-center py-3 text-white">
+        <p>&copy; 2025 John Paul Addakula. All rights reserved.</p>
+    </div>
+
+    <script>
+        // Scroll-based navbar style toggle
+        window.addEventListener("scroll", () => {
+          const navbar = document.querySelector("#navbar");
+          if (window.scrollY > 50) {
+            navbar.classList.add("scrolled");
+          } else {
+            navbar.classList.remove("scrolled");
+          }
+        });
+    </script>
+</body>
+</html>

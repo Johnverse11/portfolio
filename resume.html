@@ -4,8 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume</title>
+    <!-- Bootstrap for styling -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.17.0/pdf.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        .scrolled {
+        background-color: rgba(31, 41, 55, 0.9);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -33,7 +41,7 @@
 
         #loading-indicator {
             font-size: 18px;
-            color: #555;
+            color: #fff;
             margin-bottom: 20px;
         }
 
@@ -44,82 +52,44 @@
     </style>
 </head>
 <body>
-    <div id="navbar-placeholder"></div>
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 w-full py-4 px-6 z-10 transition-all duration-300" id="navbar">
+        <div class="flex items-center justify-between">
+            <a class="text-white text-2xl font-bold" href="index.html">Jp.</a>
+            <div class="flex space-x-6">
+                <a href="index.html" class="text-white hover:text-gray-400 transition duration-200">Home</a>
+                <a href="about.html" class="text-white hover:text-gray-400 transition duration-200">About</a>
+                <a href="Skills.html" class="text-white hover:text-gray-400 transition duration-200">Skills</a>
+                <a href="resume.html" class="text-white hover:text-gray-400 transition duration-200">Resume</a>
+                <a href="project.html" class="text-white hover:text-gray-400 transition duration-200">Projects</a>
+            </div>
+        </div>
+    </nav>
 
-    <script>
-      fetch('navbar.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('navbar-placeholder').innerHTML = data;
-        })
-        .catch(error => console.error('Error loading navbar:', error));
-    </script>
-      
     <div class="container-fluid resume-section">
         <div id="loading-indicator">Loading resume, please wait...</div>
-        <div id="pdf-viewer"></div>
-        <button class="btn btn-primary btn-download" onclick="downloadResume()">Download Resume</button>
+        <div id="pdf-viewer" class="resume"></div>
+        <button class="btn btn-primary btn-download" onclick="downloadResume()">
+            <i class="bi bi-download"></i> Download CV
+        </button>
     </div>
 
+    <script src="path/to/pdf.js/build/pdf.js"></script>
+    <script src="path/to/pdf.js/build/pdf.worker.js"></script>  <!-- Important for worker threads -->
+    <script src="resume.js"></script>  <!-- Your JavaScript file -->
+    <div id="footer" class="fixed bottom-0 left-0 w-full  text-white text-center py-3">
+        <!-- Footer content will be loaded here -->
+    </div>
     <script>
-        // Path to the PDF file
-        const pdfUrl = 'assets/pdfs/JOHN_RESUME.pdf'; // Ensure this is the correct path
-        pdfjsLib.GlobalWorkerOptions.workerSrc = '//cdnjs.cloudflare.com/ajax/libs/pdf.js/2.17.0/pdf.worker.min.js';
-
-        // Function to render PDF
-        async function renderPDF(url) {
-            const pdfViewer = document.getElementById('pdf-viewer');
-            const loadingIndicator = document.getElementById('loading-indicator');
-
-            try {
-                const loadingTask = pdfjsLib.getDocument(url);
-                const pdf = await loadingTask.promise;
-
-                loadingIndicator.style.display = 'none'; // Hide loading indicator
-
-                // Adjust scale for better visibility
-                const scale = 1.5;  // Increase or decrease the scale value as needed
-
-                for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
-                    const page = await pdf.getPage(pageNum);
-                    const viewport = page.getViewport({ scale: scale });
-
-                    const canvas = document.createElement('canvas');
-                    const context = canvas.getContext('2d');
-                    canvas.height = viewport.height;
-                    canvas.width = viewport.width;
-
-                    const renderContext = {
-                        canvasContext: context,
-                        viewport: viewport,
-                    };
-
-                    await page.render(renderContext).promise;
-                    pdfViewer.appendChild(canvas);
-                }
-            } catch (error) {
-                console.error('Error loading or rendering PDF:', error);
-                loadingIndicator.innerHTML = 'Error loading resume. Please try again.';
-            }
-        }
-
-        // Function to download the resume
-        function downloadResume() {
-            const link = document.createElement('a');
-            link.href = pdfUrl;
-            link.target = '_blank';
-            link.download = 'JOHN_RESUME.pdf';
-            link.click();
-        }
-
-        // Load and render the PDF on page load
         document.addEventListener('DOMContentLoaded', () => {
-            renderPDF(pdfUrl);
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    const footerElement = document.getElementById('footer');
+                    if (footerElement) footerElement.innerHTML = data;
+                })
+                .catch(error => console.error('Error loading footer:', error));
         });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script> <!-- Include the scroll effect script -->
-    
-    
 </body>
 </html>
