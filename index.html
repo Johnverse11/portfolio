@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Shooting Stars Background -->
     <div class="shooting-stars">
         <div class="star"></div>
         <div class="star"></div>
@@ -18,116 +19,82 @@
         <div class="star"></div>
         <div class="star"></div>
     </div>
-    <!-- Placeholder for Navbar -->
-    <div id="navbar-placeholder"></div>
 
-    <!-- Script to Load Navbar Dynamically -->
+    <!-- Navbar -->
+    <div id="navbar-placeholder"></div>
     <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        fetch('navbar.html') // Ensure the correct path to your 'navbar.html'
-        .then(response => {
-            if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.text();
-        })
-        .then(data => {
-            document.getElementById('navbar-placeholder').innerHTML = data;
-        })
-        .catch(error => console.error('Error loading navbar:', error));
-    });
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('navbar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-placeholder').innerHTML = data;
+                });
+        });
     </script>
 
-    <div id="home" class="home-section container-fluid" style="position: relative;">
-        <div class="home-content container" style="position: relative; z-index: 1;">
-            <div class="row" style="display: flex; justify-content: space-between; align-items: center;">
-                <!-- Left Box for Text -->
-                <div class="home-header" style="text-align: left; padding-left: 0; width: 50%; max-width: 800px;">
-                    <h1 class="heading" style="padding-bottom: 15px;">Hi There! <span class="wave" role="img" aria-labelledby="wave">👋🏻</span></h1>
-                    <style>
-                        .wave {
-                            display: inline-block;
-                            animation: wave-animation 2s infinite;
-                            transform-origin: 70% 70%;
-                        }
-    
-                        @keyframes wave-animation {
-                            0% { transform: rotate(0deg); }
-                            10% { transform: rotate(14deg); }
-                            20% { transform: rotate(-8deg); }
-                            30% { transform: rotate(14deg); }
-                            40% { transform: rotate(-4deg); }
-                            50% { transform: rotate(10deg); }
-                            60% { transform: rotate(0deg); }
-                            100% { transform: rotate(0deg); }
-                        }
-                    </style>
-                    <h1 class="heading-name">I'M<strong class="main-name"> 
-                        <span id="typewriter"></span>
-                    </strong></h1>
-                    <script>
-                        document.addEventListener("DOMContentLoaded", function() {
-                            const text = "JOHN PAUL ADDAKULA";
-                            let index = 0;
-                            const speed = 150; // typing speed in milliseconds
-    
-                            function typeWriter() {
-                                if (index < text.length) {
-                                    document.getElementById("typewriter").innerHTML += text.charAt(index);
-                                    index++;
-                                    setTimeout(typeWriter, speed);
-                                }
-                            }
-    
-                            typeWriter();
-                        });
-                    </script>
-                    <div style="padding: 50px; text-align: left;">
-                        <div class="Typewriter" data-testid="typewriter-wrapper">
-                            <span class="Typewriter__wrapper">Aspiring Data Scientist and AI Enthusiast| Machine Learning Practitioner</span>
-                            <p>Delivering efficient, reliable, and scalable tech solutions with a growth mindset.</p>
-                            <span class="Typewriter__cursor">|</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Right Box for Image -->
-                <div class="study col-md-6" style="text-align: right; padding-right: 0; display: flex; justify-content: flex-end; padding-left: 100px;"> <!-- Added padding-left here -->
-                    <div style="will-change: transform; transition: 500ms cubic-bezier(0.03, 0.98, 0.52, 0.99); transform: perspective(100px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);">
-                        <img src="https://soumyajit.vercel.app/static/media/home-main.541f8179af8209ce03ccf2178fe62dbf.svg" class="img-fluid" alt="avatar" style="border-radius: 100%; width: 500px; height: 500px; object-fit: fill; margin: 0;">
-                    </div>
-                </div>
+    <!-- Home Section -->
+    <section id="home" class="home-section container-fluid">
+        <div class="container d-flex flex-column align-items-center">
+            <!-- Heading -->
+            <div class="home-header text-center w-100">
+                <h1 class="heading">Hi There! <span class="wave">👋🏻</span></h1>
+                <h1 class="heading-name">I'M <strong class="main-name"> 
+                    <span id="typewriter"></span>
+                </strong></h1>
+            </div>
+
+            <!-- Image -->
+            <div class="study my-4">
+                <img src="https://soumyajit.vercel.app/static/media/home-main.541f8179af8209ce03ccf2178fe62dbf.svg" 
+                     class="img-fluid rounded-circle" 
+                     alt="avatar" 
+                     style="width: 300px; height: 300px; object-fit: cover;">
+            </div>
+
+            <!-- Typewriter Text -->
+            <div class="Typewriter text-center w-100">
+                <span class="Typewriter__wrapper">Aspiring Data Scientist and AI Enthusiast | Machine Learning Practitioner</span>
+                <p>Delivering efficient, reliable, and scalable tech solutions with a growth mindset.</p>
             </div>
         </div>
-    </div>
-            
-    <div id="about" class="home-about-section container-fluid">
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="home-about-section py-5" style="background-color: #0a1325;">
         <div class="container">
-            <!-- Heading at the top -->
-            <h1 style="font-size: 2.6em;">LET ME <span class="text-purple">INTRODUCE</span> MYSELF</h1>
-    
-            <div class="row" style="display:flexbox; justify-content: space-between; align-items: center;">
-                <!-- Left Box for Image -->
-                <div class="myAvtar col-md-6" style="text-align: left; padding-right: 10px;">
-                    <div style="display:flexbox; justify-content: flex-start;">
-                        <img src="images/image.png" alt="Profile Picture" class="img-fluid" style="width: 400px; height: 400px; object-fit:cover; margin: 0 auto; border-radius: 15%;">
-                    </div>
+            <h1 class="text-center mb-5">LET ME <span class="text-purple">INTRODUCE</span> MYSELF</h1>
+            <div class="row align-items-center">
+                <!-- Left Box </div>for Image -->
+                <div class="myAvtar col-md-6 text-center mb-4 mb-md-0">
+                    <img src="images/image.png" 
+                         alt="Profile Picture" 
+                         class="img-fluid" style="border-radius: 25px;"
+                         style="max-width: 300px;">
                 </div>
-    
+
                 <!-- Right Box for Text -->
-                <div class="home-about-description col-md-6" style="text-align: left; padding-left: 0;">
-                    <p class="home-about-body">
-                        I fell in love with programming, and every project I undertake strengthens my passion for creating impactful solutions. 🤖✨<br><br>
-                        I am proficient in languages like <i><b class="purple">Python, JavaScript, and R.</b></i><br><br>and I have hands-on experience with frameworks like<i><b class='purple'> Flask and tools such as OpenCV and Scikit-learn.</b></i>
-                        My primary interests lie in building cutting-edge  <i><b class="purple">Web Technologies, Products, and Machine Learning models.</b></i>I’ve developed systems ranging from face recognition attendance solutions to hybrid lighting control using gesture recognition.<br><br>Whenever possible, I channel my enthusiasm for innovation into creating scalable, efficient applications and integrating technologies like <b class="purple">RESTful APIs, Docker, and AWS </b>.
-                        for a seamless user experience.
+                <div class="home-about-description col-md-6">
+                    <p>
+                        I am proficient in languages like <strong class="purple">Python, JavaScript, and R.</strong> 
+                        I have hands-on experience with frameworks like 
+                        <strong class="purple">Flask</strong> and tools such as 
+                        <strong class="purple">OpenCV and Scikit-learn.</strong>
+                    </p>
+                    <p>
+                        My primary interests lie in building cutting-edge 
+                        <strong class="purple">Web Technologies, Products, and Machine Learning models.</strong>
+                    </p>
+                    <p>
+                        I channel my enthusiasm for innovation into creating scalable, efficient applications 
+                        and integrating technologies like 
+                        <strong class="purple">RESTful APIs, Docker, and AWS</strong>.
                     </p>
                 </div>
             </div>
         </div>
-    </div>
-    
-    
+    </section>
 
+    <!-- Social Section -->
     <div id="intro-page" style="display: block; text-align: center; padding: 2rem;">
         <h1>FIND ME ON</h1>
         <p>Feel free to connect with me</p>
@@ -159,53 +126,22 @@
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const starfield = document.getElementById("starfield");
-    
-            function createShootingStar() {
-                const star = document.createElement("div");
-                star.classList.add("shooting-star");
-    
-                // Random position and delay for the shooting star
-                const size = Math.random() * 3 + 1;
-                star.style.width = `${size}px`;
-                star.style.height = `${size}px`;
-    
-                const positionX = Math.random() * window.innerWidth;
-                const positionY = Math.random() * window.innerHeight / 2;
-                star.style.top = `${positionY}px`;
-                star.style.left = `${positionX}px`;
-    
-                const duration = Math.random() * 3 + 2;
-                star.style.animationDuration = `${duration}s`;
-    
-                starfield.appendChild(star);
-    
-                // Remove the star after animation
-                setTimeout(() => {
-                    star.remove();
-                }, duration * 1000);
+            const text = "JOHN PAUL ADDAKULA";
+            let index = 0;
+            const speed = 150;
+
+            function typeWriter() {
+                if (index < text.length) {
+                    document.getElementById("typewriter").innerHTML += text.charAt(index);
+                    index++;
+                    setTimeout(typeWriter, speed);
+                }
             }
-    
-            // Generate stars at intervals
-            setInterval(createShootingStar, 500);
+            typeWriter();
         });
     </script>
-    
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-          fetch('navbar.html')
-            .then(response => response.text())
-            .then(data => {
-              document.body.insertAdjacentHTML('afterbegin', data);
-            });
-        });
-      </script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-      <script src="script.js"></script> <!-- Include the scroll effect script -->
-      
-      
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
