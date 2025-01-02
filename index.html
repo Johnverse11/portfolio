@@ -31,177 +31,140 @@
                 });
         });
     </script>
-
     <!-- Home and About Section -->
-    <section id="home-about" class="container-fluid d-flex flex-column align-items-center justify-content-center" style="min-height: 100vh;">
-        <div class="container d-flex flex-column flex-lg-row align-items-center justify-content-between">
-            <!-- Home Panel (Text Panel) -->
-            <div class="home-panel text-center text-lg-start w-100 mb-5 mb-lg-0">
-                <h1 class="text-center mb-5"><br>
-                    Hi There! <span class="wave">👋🏻</span><br>
-                    I'M <span class="text-blue" style="font-family:cursive; font-weight: bold; text-shadow: 2px 2px 4px #0a1325;">JOHN PAUL ADDAKULA</span>
-                </h1>
-                <div class="Typewriter w-100">
-                    <span class="Typewriter__wrapper"></span>
+    <section id="home-about" class="container-fluid d-flex flex-column flex-lg-row align-items-center justify-content-center" style="min-height: 80vh;">
+        <!-- Home Panel -->
+        <div class="home-panel text-center text-lg-start p-4 w-100 d-flex flex-column align-items-center justify-content-center" style="margin-bottom: 0;">
+            <h1 class="mb-4">
+            Hi There! <span class="wave">👋🏻</span><br>
+            I'M <span class="text-blue" style="font-family:cursive; font-weight: bold; text-shadow: 2px 2px 4px #0a1325;">JOHN PAUL ADDAKULA</span>
+            </h1>
+            <div class="Typewriter w-100 d-flex justify-content-center"></div>
+            <span class="Typewriter__wrapper"></span>
+        </div>
+
+        <style>
+            .wave {
+                display: inline-block;
+                animation: wave-animation 2s infinite;
+            }
+
+            @keyframes wave-animation {
+                0%, 60%, 100% { transform: rotate(0deg); }
+                10%, 30% { transform: rotate(14deg); }
+                20% { transform: rotate(-8deg); }
+                40% { transform: rotate(-4deg); }
+                50% { transform: rotate(10deg); }
+            }
+
+            .text-blue {
+                color: #007bff;
+            }
+        </style>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const texts = ["Aspiring Data Scientist", "AI Enthusiast", "Machine Learning Practitioner"];
+                const typewriterElement = document.querySelector(".Typewriter__wrapper");
+                typewriterElement.style.fontFamily = "cursive";
+                typewriterElement.style.fontSize = "1.5rem";
+                let index = 0;
+                let charIndex = 0;
+                const speed = 150;
+                const delayBetweenTexts = 2000;
+
+                function typeWriter() {
+                    if (charIndex < texts[index].length) {
+                        typewriterElement.innerHTML += texts[index].charAt(charIndex);
+                        charIndex++;
+                        setTimeout(typeWriter, speed);
+                    } else {
+                        setTimeout(eraseText, delayBetweenTexts);
+                    }
+                }
+
+                function eraseText() {
+                    if (charIndex > 0) {
+                        typewriterElement.innerHTML = texts[index].substring(0, charIndex - 1);
+                        charIndex--;
+                        setTimeout(eraseText, speed);
+                    } else {
+                        index = (index + 1) % texts.length;
+                        setTimeout(typeWriter, speed);
+                    }
+                }
+
+                typeWriter();
+            });
+        </script>
+        </div>
+
+        <!-- About Panel -->
+        <div class="about-panel text-left text-lg-start p-4 w-100" style="background-color: #0a1325; border-radius: 10px; margin-top: 0;">
+            <h1 class="text-center mb-4">LET ME <span class= "text-blue">INTRODUCE</span> MYSELF</h1>
+            <div class="row align-items-center">
+                <!-- Image Section -->
+                <div class="myAvtar col-12 col-lg-6 text-center">
+                    <img src="images/image.png" alt="Profile Picture" class="img-fluid" style="border-radius: 25px; max-width: 300px;">
                 </div>
-                <style>
-                    .wave {
-                        display: inline-block;
-                        animation: wave-animation 2s infinite;
-                    }
-
-                    @keyframes wave-animation {
-                        0% { transform: rotate(0deg); }
-                        10% { transform: rotate(14deg); }
-                        20% { transform: rotate(-8deg); }
-                        30% { transform: rotate(14deg); }
-                        40% { transform: rotate(-4deg); }
-                        50% { transform: rotate(10deg); }
-                        60% { transform: rotate(0deg); }
-                        100% { transform: rotate(0deg); }
-                    }
-
-                    .text-blue {
-                        color: #007bff;
-                    }
-                </style>
-                <script>
-                    document.addEventListener("DOMContentLoaded", function () {
-                        const texts = ["Aspiring Data Scientist", "AI Enthusiast", "Machine Learning Practitioner"];
-                        const typewriterElement = document.querySelector(".Typewriter__wrapper");
-                        typewriterElement.style.fontFamily = "cursive";
-                        typewriterElement.style.fontSize = "1.5rem";
-                        let index = 0;
-                        let charIndex = 0;
-                        const speed = 150;
-                        const delayBetweenTexts = 2000;
-
-                        function typeWriter() {
-                            if (charIndex < texts[index].length) {
-                                typewriterElement.innerHTML += texts[index].charAt(charIndex);
-                                charIndex++;
-                                setTimeout(typeWriter, speed);
-                            } else {
-                                setTimeout(eraseText, delayBetweenTexts);
-                            }
-                        }
-
-                        function eraseText() {
-                            if (charIndex > 0) {
-                                typewriterElement.innerHTML = texts[index].substring(0, charIndex - 1);
-                                charIndex--;
-                                setTimeout(eraseText, speed);
-                            } else {
-                                index = (index + 1) % texts.length;
-                                setTimeout(typeWriter, speed);
-                            }
-                        }
-
-                        typeWriter();
-                    });
-                </script>
-                <div class="Typewriter w-100">
-                    <span class="Typewriter__wrapper"></span>
-                </div>
-                </script>
-            </div>
-
-            <!-- About Panel (Image Panel) -->
-            <div class="about-panel text-left text-lg-start w-100" style="background-color: #0a1325; padding: 2rem; border-radius: 25px;">
-                <h1 class="text-center mb-5">LET ME <span class="text-blue">INTRODUCE</span> MYSELF</h1>
-                <div class="row align-items-center">
-                    <!-- Left Box for Text (for Larger screens) -->
-                    <div class="home-about-description col-12 col-lg-6">
-                        <p>
-                            I am proficient in languages like <strong class="text-blue">Python, JavaScript, and R.</strong> 
-                            I have hands-on experience with frameworks like 
-                            <strong class="text-blue">Flask</strong> and tools such as 
-                            <strong class="text-blue">OpenCV and Scikit-learn.</strong>
-                        </p>
-                        <p>
-                            My primary interests lie in building cutting-edge 
-                            <strong class="text-blue">Web Technologies, Products, and Machine Learning models.</strong>
-                        </p>
-                        <p>
-                            I channel my enthusiasm for innovation into creating scalable, efficient applications 
-                            and integrating technologies like 
-                            <strong class="text-blue">RESTful APIs, Docker, and AWS</strong>.
-                        </p>
-                    </div>
-
-                    <!-- Right Box for Image -->
-                    <div class="myAvtar col-12 col-lg-6 text-center mb-4 mb-lg-0">
-                        <img src="images/image.png" 
-                            alt="Profile Picture" 
-                            class="img-fluid" 
-                            style="border-radius: 25px; max-width: 300px;">
-                    </div>
+                <!-- Text Section -->
+                <div class="home-about-description col-12 col-lg-6">
+                    <p><br>
+                        I am proficient in languages like <strong class="text-blue">Python, JavaScript, and R.</strong> 
+                        I have hands-on experience with frameworks like 
+                        <strong class="text-blue">Flask</strong> and tools such as 
+                        <strong class="text-blue">OpenCV and Scikit-learn.</strong>
+                    </p>
+                    <p>
+                        My primary interests lie in building cutting-edge 
+                        <strong class="text-blue">Web Technologies, Products, and Machine Learning models.</strong>
+                    </p>
+                    <p>
+                        I channel my enthusiasm for innovation into creating scalable, efficient applications 
+                        and integrating technologies like 
+                        <strong class="text-blue">RESTful APIs, Docker, and AWS</strong>.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Additional Styling for Mobile Adjustment -->
+    <!-- Responsive Styling -->
     <style>
-        /* Mobile-first adjustments */
-        @media (max-width: 767px) {
-            #home-about .home-panel h1 {
-                font-size: 1.5rem; /* Adjust size for mobile */
-            }
-
-            #home-about .about-panel {
-                padding: 1.5rem; /* Reduce padding for mobile */
-            }
-
-            #home-about .myAvtar img {
-                max-width: 80%; /* Make the image smaller for mobile */
-            }
-
-            #home-about .home-about-description p {
-                font-size: 0.9rem; /* Adjust font size for mobile */
+        @media (max-width: 991px) {
+            #home-about {
+                flex-direction: column;
             }
         }
 
-        /* Larger screens like tablets and up */
-        @media (min-width: 768px) and (max-width: 991px) {
-            #home-about .home-panel h1 {
-                font-size: 1.75rem;
-            }
-
-            #home-about .about-panel {
-                padding: 1.75rem; /* Adjust padding */
-            }
-
-            #home-about .myAvtar img {
-                max-width: 250px; /* Adjust image size for tablets */
-            }
-        }
-
-        /* Larger screens like laptops and desktops */
         @media (min-width: 992px) {
-            #home-about .home-panel h1 {
-                font-size: 2.5rem;
+            #home-about {
+                flex-direction: row;
             }
+        }
 
-            #home-about .about-panel {
-                padding: 2rem;
-            }
+        .home-panel, .about-panel {
+            width: 100%;
+        }
 
-            #home-about .myAvtar img {
-                max-width: 300px; /* Larger image size */
+        @media (min-width: 992px) {
+            .home-panel, .about-panel {
+                width: 50%;
             }
+        }
 
-            /* Home panel (text) on the left, image on the right */
-            #home-about .container {
-                flex-direction: row; /* Align text and image side by side */
-            }
+        .home-about-description p {
+            margin-bottom: 1.5rem;
+            color: #fff;
+        }
 
-            #home-about .home-panel,
-            #home-about .about-panel {
-                width: 50%; /* Ensure each section takes half of the space */
-            }
+        /* Ensure image and text are side by side on larger screens */
+        .row.align-items-center {
+            display: flex;
+            justify-content: space-between;
         }
     </style>
+
 
     <!-- Social Section -->
     <div id="intro-page" style="display: block; text-align: center; padding: 2rem;">
@@ -247,22 +210,7 @@
         
     </div>
 
-    <!-- <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const text = "JOHN PAUL ADDAKULA";
-            let index = 0;
-            const speed = 150;
-
-            function typeWriter() {
-                if (index < text.length) {
-                    document.getElementById("typewriter").innerHTML += text.charAt(index);
-                    index++;
-                    setTimeout(typeWriter, speed);
-                }
-            }
-            typeWriter();
-        });
-    </script> -->
+    </script> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- In the HTML page -->
     <div id="footer"></div>

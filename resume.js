@@ -38,11 +38,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 };
 
                 const renderPromises = [];
-                console.error('PDF.js library still not loaded!', error);
                     renderPromises.push(renderPage(pageNum));
-                }
                 await Promise.all(renderPromises);
-                }
             } catch (error) {
                 console.error('Error loading or rendering PDF:', error);
                 loadingIndicator.innerHTML = 'Failed to load resume. Please try again later.';

@@ -8,183 +8,207 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Sea Theme Styling */
+        /* Custom Theme Styling */
         body {
-            background: linear-gradient(to bottom, #87CEEB, #1E90FF);
-            color: #f8f8f8;
+            background-color: #182848; /* Dark blue background */
+            margin: 0;
             font-family: 'Roboto', sans-serif;
+            color: white;
+            padding: 0;
+            height: 100vh;
+            overflow-x: hidden; /* Prevent horizontal scrollbars */
         }
-
-        /* Navbar styling */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px;
-            background-color: rgba(30, 144, 255, 0.9);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-            z-index: 10;
-        }
-
-        .navbar a {
-            color: #fff;
-            font-size: 18px;
-            margin-right: 20px;
-            transition: color 0.3s;
-        }
-
-        .navbar a:hover {
-            color: #87CEEB;
-        }
-
-        /* Header */
-        header {
-            text-align: center;
-            padding: 50px 0;
-            background: #4682B4;
-            color: #fff;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-        }
-
-        /* About section */
         .about-section {
-            background: rgba(255, 255, 255, 0.8);
+            background: #182848;
             padding: 30px;
             border-radius: 12px;
-            margin-top: 80px;
+            margin-top: 80px; /* Reduced top margin */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
         }
-
-        .about-section h2 {
-            font-size: 1.8rem;
-            color: #1E90FF;
-            text-align: center;
+        .scrolled {
+            background-color: rgba(31, 41, 55, 0.9);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-
-        .about-section p, .about-section ul {
-            font-size: 1.1rem;
-            color: #333;
-            line-height: 1.6;
+        /* Optimize spacing in sections */
+        .section-title {
+            font-size: 1.5rem;
+            color: #3b82f6;
+            margin-bottom: 12px;
         }
-
-        .about-section img {
-            border-radius: 50%;
-            max-width: 300px;
-            margin: 20px 0;
+        .section-content {
+            font-size: 1rem;
+            margin-bottom: 24px;
+            line-height: 1.7;
         }
-
-        /* Footer */
-        #footer {
-            background: #1E90FF;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-        }
-
-        /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
+        /* Adjust margins for laptop view */
+        @media (min-width: 1024px) {
+            .about-section {
+                max-width: 900px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .section-content ul {
+                margin-left: 1rem;
+            }
         }
     </style>
 </head>
 <body>
-
-    <!-- Navbar (Tailwind) -->
-    <nav class="navbar" id="navbar">
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 w-full py-4 px-6 z-10 transition-all duration-300" id="navbar">
         <div class="flex items-center justify-between">
             <a class="text-white text-2xl font-bold" href="index.html">Jp.</a>
-            <div class="flex space-x-6">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="Skills.html">Skills</a>
-                <a href="resume.html">Resume</a>
-                <a href="project.html">Projects</a>
+            <button id="nav-toggler" class="text-white lg:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+            <div id="nav-links" class="hidden lg:flex space-x-6 lg:space-x-6">
+                <a href="index.html" class="text-white hover:text-gray-400 transition duration-200">Home</a>
+                <a href="about.html" class="text-white hover:text-gray-400 transition duration-200">About</a>
+                <a href="Skills.html" class="text-white hover:text-gray-400 transition duration-200">Skills</a>
+                <a href="resume.html" class="text-white hover:text-gray-400 transition duration-200">Resume</a>
+                <a href="project.html" class="text-white hover:text-gray-400 transition duration-200">Projects</a>
             </div>
+        </div>
+        <div id="mobile-menu" class="hidden flex flex-col space-y-4 mt-4 lg:hidden bg-gray-800 bg-opacity-90 p-4 rounded">
+            <a href="index.html" class="text-white hover:text-gray-400 transition duration-200">Home</a>
+            <a href="about.html" class="text-white hover:text-gray-400 transition duration-200">About</a>
+            <a href="Skills.html" class="text-white hover:text-gray-400 transition duration-200">Skills</a>
+            <a href="resume.html" class="text-white hover:text-gray-400 transition duration-200">Resume</a>
+            <a href="project.html" class="text-white hover:text-gray-400 transition duration-200">Projects</a>
         </div>
     </nav>
 
-    <div class="container mx-auto my-12 p-8 rounded-lg about-section">
-        <section id="home-about" class="flex flex-col items-center justify-center">
-            <div class="flex flex-col lg:flex-row items-center justify-between w-full">
-                <div class="about-panel text-center p-6 rounded-lg w-full">
-                    <h2>Know <span class="text-blue-500">Who I Am</span></h2>
-                    <div class="flex flex-col lg:flex-row items-center">
-                        <div class="home-about-description w-full lg:w-1/2">
-                            <section>
-                                <p>Hi Everyone, I am John Paul Addakula from Hyderabad, India.</p>
-                                <p>I am currently pursuing my Bachelor of Technology in Computer Science (Data Science & AI) at Hindustan Institute of Technology and Science.</p>
-                                <p>Apart from coding, some other activities that I love to do:</p>
-                                <ul class="list-disc list-inside">
-                                    <li>Photography</li>
-                                    <li>Video Editing</li>
-                                    <li>Cooking</li>
-                                </ul>
-                                <p><strong>"Strive to build things that make a difference!"</strong></p>
-                            </section>
-                        </div>
+    <script>
+        // Toggle mobile menu visibility
+        const toggler = document.getElementById('nav-toggler');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-                        <div class="myAvtar w-full lg:w-1/2 text-center">
-                            <img src="https://via.placeholder.com/300" alt="John Paul Addakula">
-                        </div>
-                    </div>
-                </div>
+        toggler.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Change navbar style on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+    <!-- About Section -->
+    <div class="container mx-auto my-12 px-8 about-section">
+        <h2 class="text-center text-blue-600 text-2xl font-semibold">About <span class="text-blue-700">John Paul Addakula</span></h2>
+        <section class="flex flex-col lg:flex-row items-center mt-6">
+            <div class="w-full lg:w-1/2 text-center">
+                <img src="images/John_DP.jpeg" alt="John Paul Addakula" class="rounded-full mx-auto mb-6 lg:mb-0 w-48 h-48 lg:w-64 lg:h-64 object-cover">
+            </div>
+            <div class="w-full lg:w-1/2 lg:pl-8">
+                <p class="text-lg">Hi Everyone, I am <strong>John Paul Addakula</strong> from Hyderabad, India. I am currently pursuing my <strong>Bachelor of Technology in Computer Science (Data Science & AI)</strong> at Hindustan Institute of Technology and Science.</p>
+                <p class="mt-4">Apart from coding, some of my other interests include:</p>
+                <ul class="list-disc list-inside mt-2 text-lg">
+                    <li>Photography</li>
+                    <li>Video Editing</li>
+                    <li>Cooking</li>
+                </ul>
+                <p class="mt-4 font-semibold">"Strive to build things that make a difference!"</p>
             </div>
         </section>
 
+        <!-- Educational Background -->
         <section class="mt-8">
-            <h2 class="text-blue-600">Educational Background</h2>
-            <ul class="list-disc list-inside">
-                <li><strong>B.Tech in CSE (DS & AI):</strong> Hindustan Institute of Technology and Science, Chennai, India (2021 - Present). CGPA: 8.9 (up to 4th semester).</li>
-                <li><strong>Intermediate (+2) in MPC:</strong> Sri Gayatri Junior College, Telangana, India (2019 - 2021). Percentage: 98%.</li>
-                <li><strong>Secondary School Certificate (SSC):</strong> Hyderabad Talent School, Telangana, India (2019). CGPA: 9.8.</li>
-            </ul>
-        </section>
+            <!-- Educational Background -->
+            <div class="container mx-auto my-12 px-8 about-section">
+                <section class="mt-8">
+                <h2 class="section-title">Educational Background</h2>
+                <ul class="list-disc list-inside section-content lg:ml-8 lg:text-justify">
+                    <li><strong>B.Tech in CSE (DS & AI):</strong> Hindustan Institute of Technology and Science, Chennai, India (2021 - Present). CGPA: 8.9 (up to 4th semester).</li>
+                    <li><strong>Intermediate (+2) in MPC:</strong> Sri Gayatri Junior College, Telangana, India (2019 - 2021). Percentage: 98%.</li>
+                    <li><strong>Secondary School Certificate (SSC):</strong> Hyderabad Talent School, Telangana, India (2019). CGPA: 9.8.</li>
+                </ul>
+                </section>
 
-        <section class="mt-8">
-            <h2 class="text-blue-600">Club Activities</h2>
-            <ul class="list-disc list-inside">
-                <li><strong>Associate PRO:</strong> Rotaract Club of Hindustan University. Contributed to projects, events, and community service with dedication (May 2023 - Present).</li>
-                <li><strong>Blue Screen Programming Club:</strong> Mentored juniors in coding, competitive hackathons, and fostering a vibrant learning community (May 2023 - Present).</li>
-            </ul>
-        </section>
+                <!-- Club Activities -->
+                <section class="mt-8">
+                <h2 class="section-title">Club Activities</h2>
+                <ul class="list-disc list-inside section-content lg:ml-8 lg:text-justify">
+                    <li><strong>Associate PRO:</strong> Rotaract Club of Hindustan University. Contributed to projects, events, and community service with dedication (May 2023 - Present).</li>
+                    <li><strong>Blue Screen Programming Club:</strong> Mentored juniors in coding, competitive hackathons, and fostering a vibrant learning community (May 2023 - Present).</li>
+                </ul>
+                </section>
 
-        <section class="mt-8">
-            <h2 class="text-blue-600">Languages</h2>
-            <ul class="list-disc list-inside">
-                <li>English</li>
-                <li>Telugu</li>
-                <li>Hindi</li>
-                <li>Tamil</li>
-            </ul>
-        </section>
+                <!-- Languages -->
+                <section class="mt-8">
+                <h2 class="section-title">Languages</h2>
+                <ul class="list-disc list-inside section-content lg:ml-8 lg:text-justify">
+                    <li>English</li>
+                    <li>Telugu</li>
+                    <li>Hindi</li>
+                    <li>Tamil</li>
+                </ul>
+                </section>
 
-        <section class="contact mt-8">
-            <h2 class="text-blue-600">Contact Information</h2>
-            <p><strong>Mobile:</strong> +91 9705637155</p>
-            <p><strong>Email:</strong> <a href="mailto:johnshalem11@gmail.com" class="text-blue-500">johnshalem11@gmail.com</a></p>
-            <p><strong>Address:</strong> Plot No. 18, 2nd Floor, Jakidi Sati Reddy Colony, LB Nagar, Hyderabad, Telangana, 500074</p>
-        </section>
-    </div>
+                <!-- Contact Information -->
+                <section class="contact mt-8">
+                <h2 class="section-title">Contact Information</h2>
+                <p class="section-content lg:ml-8 lg:text-justify"><strong>Mobile:</strong> +91 9705637155</p>
+                <p class="section-content lg:ml-8 lg:text-justify"><strong>Email:</strong> <a href="mailto:johnshalem11@gmail.com" class="text-blue-500">johnshalem11@gmail.com</a></p>
+                <p class="section-content lg:ml-8 lg:text-justify"><strong>Address:</strong> LB Nagar, Hyderabad, Telangana, 500074</p>
+                </section>
+            </div>
 
     <!-- Footer -->
-    <div id="footer" class="bg-gray-900 text-center py-3 text-white">
-        <p>&copy; 2025 John Paul Addakula. All rights reserved.</p>
-    </div>
+    <footer class="bg-gray-800 text-white text-center py-6">
+        <div class="container mx-auto">
+          <div class="flex justify-center space-x-6">
+            <a href="https://twitter.com" class="text-white hover:text-gray-400 transition duration-200">
+              <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    height="24"
+                    width="24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"
+                    ></path>
+                  </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/johnpaul-addakula-371348224/" class="text-white hover:text-gray-400 transition duration-200">
+              <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                    height="24"
+                    width="24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"
+                    ></path>
+                  </svg>
+            </a>
+            <a href="https://github.com/Johnpauladdakula" class="text-white hover:text-gray-400 transition duration-200">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                height="24"
+                width="24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.397.6.111.826-.261.826-.58v-2.284c-3.338.727-4.04-1.566-4.04-1.566-.544-1.383-1.332-1.752-1.332-1.752-1.089-.743.083-.727.083-.727 1.204.084 1.835 1.242 1.835 1.242.839 1.444 2.204 1.026 2.74.784.085-.624.328-1.026.598-1.26-2.672-.301-5.468-1.34-5.468-5.94 0-1.313.467-2.384 1.236-3.221-.124-.301-.534-1.507.116-3.15 0 0 1.009-.322 3.311 1.231 1.098-.305 2.28-.459 3.44-.462 1.16.003 2.342.157 3.44.462 2.302-1.553 3.311-1.231 3.311-1.231.65 1.644.24 2.85.116 3.15.77.837 1.236 1.908 1.236 3.221 0 4.6-2.8 5.639-5.468 5.94.27.242.53.717.53 1.445v2.684c0 .321.226.693.826.58A11.938 11.938 0 0 0 24 12c0-6.627-5.373-12-12-12z"
+                ></path>
+              </svg>
+            </a>
+          </div>
+          <p class="mt-4 text-gray-400">&copy; 2025 Johnpaul Addakula. All rights reserved.</p>
+        </div>
+      </footer>
 
-    <script>
-        // Scroll-based navbar style toggle
-        window.addEventListener("scroll", () => {
-          const navbar = document.querySelector("#navbar");
-          if (window.scrollY > 50) {
-            navbar.classList.add("scrolled");
-          } else {
-            navbar.classList.remove("scrolled");
-          }
-        });
-    </script>
 </body>
 </html>

@@ -7,10 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>My Projects</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-  
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-
   <style>
     .scrolled {
       background-color: rgba(31, 41, 55, 0.9);
@@ -20,27 +17,68 @@
 </head>
 
 <body class="bg-gray-900 text-white font-roboto">
-  <!-- Navbar (Tailwind) -->
-  <nav class="fixed top-0 left-0 w-full  py-4 px-6 z-10 transition-all duration-300" id="navbar">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .scrolled {
+      background-color: rgba(31, 41, 55, 0.9);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-white font-roboto">
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 w-full py-4 px-6 z-10 transition-all duration-300" id="navbar">
     <div class="flex items-center justify-between">
-      <a class="text-white text-2xl font-bold" href="index.html">Jp.</a>
-      <div class="flex space-x-6">
+    <a class="text-white text-2xl font-bold" href="index.html">Jp.</a>
+    <button id="nav-toggler" class="text-white lg:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+    </button>
+    <div id="nav-links" class="hidden lg:flex space-x-6 lg:space-x-6">
         <a href="index.html" class="text-white hover:text-gray-400 transition duration-200">Home</a>
         <a href="about.html" class="text-white hover:text-gray-400 transition duration-200">About</a>
         <a href="Skills.html" class="text-white hover:text-gray-400 transition duration-200">Skills</a>
         <a href="resume.html" class="text-white hover:text-gray-400 transition duration-200">Resume</a>
         <a href="project.html" class="text-white hover:text-gray-400 transition duration-200">Projects</a>
-      </div>
+    </div>
+    </div>
+    <div id="mobile-menu" class="hidden flex flex-col space-y-4 mt-4 lg:hidden bg-gray-800 bg-opacity-90 p-4 rounded">
+    <a href="index.html" class="text-white hover:text-gray-400 transition duration-200">Home</a>
+    <a href="about.html" class="text-white hover:text-gray-400 transition duration-200">About</a>
+    <a href="Skills.html" class="text-white hover:text-gray-400 transition duration-200">Skills</a>
+    <a href="resume.html" class="text-white hover:text-gray-400 transition duration-200">Resume</a>
+    <a href="project.html" class="text-white hover:text-gray-400 transition duration-200">Projects</a>
     </div>
   </nav>
 
-  <!-- Main Content Container -->
-  <div id="main-content" class="pt-20">
-    <!-- Heading for the projects section -->
-    <div class="text-center mt-10">
-      <h1 class="font-bold text-4xl text-white">My Projects</h1>
-      <p class="text-lg text-gray-400 mt-2">Explore the following projects I have worked on</p>
-    </div>
+  <script>
+      // Toggle mobile menu visibility
+      const toggler = document.getElementById('nav-toggler');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      toggler.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      });
+
+      // Change navbar style on scroll
+      window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+          navbar.classList.add('scrolled');
+      } else {
+          navbar.classList.remove('scrolled');
+      }
+      });
+  </script>
+    <!-- Main Content Container -->
+    <div id="main-content" class="pt-20">
+      <!-- Heading for the projects section -->
+      <div class="text-center mt-10">
+        <h1 class="font-bold text-4xl text-white">My Projects</h1>
+        <p class="text-lg text-gray-400 mt-2">Explore the following projects I have worked on</p>
+      </div>
 
     <!-- Project Templates Section -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6 mt-10">
@@ -155,18 +193,6 @@
       </div>
     </div>
   </div>
-
-  <script>
-    // Scroll-based navbar style toggle
-    window.addEventListener("scroll", () => {
-      const navbar = document.querySelector("#navbar");
-      if (window.scrollY > 50) {
-        navbar.classList.add("scrolled");
-      } else {
-        navbar.classList.remove("scrolled");
-      }
-    });
-  </script>
 
   <!-- Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
