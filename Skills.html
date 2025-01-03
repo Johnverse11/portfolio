@@ -6,6 +6,14 @@
     <title>Skills & Projects</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        .scrolled {
+            background-color: rgba(31, 41, 55, 0.9);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 
     <style>
         body {
@@ -15,31 +23,58 @@
             background-color: rgba(31, 41, 55);
             color: #ffffff;
         }
+
         .container {
+            max-width: 1200px;
+            margin: 40px auto;
             padding: 20px;
-            margin-top: 100px; /* Adjust for fixed navbar */
+            background-color: rgba(24, 40, 72, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
         }
-        h2 {
-            color: #f7f7f7;
-        }
-        .skills, .Internship {
-            margin: 20px 0;
-        }
-        .skill-item, .Internship-item {
-            background-color: rgba(24, 40, 72, 0.7);
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .skill-item h3, .Internship-item h3 {
-            margin: 0;
+
+        h1, h2 {
             color: #ffffff;
+            text-align: center;
         }
-        .Internship-item p {
-            margin: 5px 0;
-            font-size: 14px;
+
+        .table {
+            margin: 20px 0;
+            background-color: transparent;
         }
+
+        th, td {
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+
+        th {
+            background-color: rgba(0, 128, 255, 0.7);
+        }
+
+        tr:hover td {
+            background-color: rgba(0, 128, 255, 0.3);
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .skill-item, .Internship-item {
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(24, 40, 72, 0.9), rgba(31, 41, 55, 0.9));
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .skill-item h3, .Internship-item h3 {
+            color: #00ccff;
+            margin-bottom: 10px;
+        }
+
+        .skill-item ul, .Internship-item p {
+            color: #d1d5db;
+        }
+
         footer {
             background-color: #333;
             color: white;
@@ -49,17 +84,26 @@
             width: 100%;
             bottom: 0;
         }
-    </style>
-        <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .scrolled {
-        background-color: rgba(31, 41, 55, 0.9);
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            th, td {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .skill-item, .Internship-item {
+                padding: 15px;
+            }
         }
     </style>
+
 </head>
 
-<body class="bg-gray-900 text-white font-roboto">
+<body class="bg-gray-900 text-white">
     <!-- Navbar -->
     <nav class="fixed top-0 left-0 w-full py-4 px-6 z-10 transition-all duration-300" id="navbar">
         <div class="flex items-center justify-between">
@@ -86,36 +130,73 @@
         </div>
     </nav>
 
-    <script>
-        // Toggle mobile menu visibility
-        const toggler = document.getElementById('nav-toggler');
-        const mobileMenu = document.getElementById('mobile-menu');
 
-        toggler.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-        });
-
-        // Change navbar style on scroll
-        window.addEventListener('scroll', () => {
-        const navbar = document.getElementById('navbar');
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-        });
-    </script>
     <!-- Main Content -->
     <div class="container">
         <section class="skills">
-            <h2>Skills</h2>
-            <div class="skill-item">
-                <h3>Technical Skills</h3>
-                <p><strong>Languages:</strong> Python, C, HTML, CSS, JavaScript, Java (basic), R</p>
-                <p><strong>Libraries & Tools:</strong> Scikit-Learn, Pandas, OpenCV, PowerBI, GitHub, Unix/Linux Environments</p>
-                <p><strong>Frameworks:</strong> Flask</p>
-                <p><strong>Technologies:</strong> RESTful APIs, Docker, AWS</p>
-                <p><strong>Specialties:</strong> Machine Learning, Distributed Systems, Data Storage Solutions, Scalability</p>
+            <h1 style="font-size: 1.5em;">My Skills</h1>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Skill</th>
+                            <th>Logo</th>
+                            <th>Skill</th>
+                            <th>Logo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Python</td>
+                            <td><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/python.svg" alt="Python" width="30" style="background-color: white; padding: 5px; border-radius: 5px;"></td>
+                            <td>C</td>
+                            <td><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/c.svg" alt="C" width="30" style="background-color: white; padding: 5px; border-radius: 5px;"></td>
+                        </tr>
+                        <tr>
+                            <td>HTML</td>
+                            <td><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/html5.svg" alt="HTML" width="30" style="background-color: white; padding: 5px; border-radius: 5px;"></td>
+                            <td>CSS</td>
+                            <td><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/css3.svg" alt="CSS" width="30" style="background-color: white; padding: 5px; border-radius: 5px;"></td>
+                        </tr>
+                        <tr>
+                            <td>JavaScript</td>
+                            <td><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/javascript.svg" alt="JavaScript" width="30" style="background-color: white; padding: 5px; border-radius: 5px;"></td>
+                            <td>Java</td>
+                            <td><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/java.svg" alt="Java" width="30" style="background-color: white; padding: 5px; border-radius: 5px;"></td>
+                        </tr>
+                        <tr>
+                            <td>R</td>
+                            <td><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/r.svg" alt="R" width="30" style="background-color: white; padding: 5px; border-radius: 5px;"></td>
+                            <td>Scikit-Learn</td>
+                            <td><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/scikitlearn.svg" alt="Scikit-Learn" width="30" style="background-color: white; padding: 5px; border-radius: 5px;"></td>
+                        </tr>
+                        <tr>
+                            <td>Pandas</td>
+                            <td><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/pandas.svg" alt="Pandas" width="30" style="background-color: white; padding: 5px; border-radius: 5px;"></td>
+                            <td>OpenCV</td>
+                            <td><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/opencv.svg" alt="OpenCV" width="30" style="background-color: white; padding: 5px; border-radius: 5px;"></td>
+                        </tr>
+                        <tr>
+                            <td>PowerBI</td>
+                            <td><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/powerbi.svg" alt="PowerBI" width="30" style="background-color: white; padding: 5px; border-radius: 5px;"></td>
+                            <td>GitHub</td>
+                            <td><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/github.svg" alt="GitHub" width="30" style="background-color: white; padding: 5px; border-radius: 5px;"></td>
+                        </tr>
+                        <tr>
+                            <td>Unix/Linux Environments</td>
+                            <td><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/linux.svg" alt="Linux" width="30" style="background-color: white; padding: 5px; border-radius: 5px;"></td>
+                            <td>Flask</td>
+                            <td><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/flask.svg" alt="Flask" width="30" style="background-color: white; padding: 5px; border-radius: 5px;"></td>
+                        </tr>
+                        <tr>
+                            <td>Docker</td>
+                            <td><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/docker.svg" alt="Docker" width="30" style="background-color: white; padding: 5px; border-radius: 5px;"></td>
+                            <td>AWS</td>
+                            <td><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/amazonaws.svg" alt="AWS" width="30" style="background-color: white; padding: 5px; border-radius: 5px;"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             </div>
             <div class="skill-item">
                 <h3>Soft Skills</h3>
@@ -130,20 +211,17 @@
         </section>
 
         <section class="Internship">
-            <h2>Internship</h2>
+            <h1 style="font-size: 1.5em;">Internship</h1>
             <div class="Internship-item">
                 <h3>Machine Learning Intern - Code Alpha</h3>
                 <p><strong>Developed a Disease Prediction Model:</strong> Built a machine learning model to predict diseases based on user input and medical datasets.</p>
                 <p><strong>Implemented a Handwritten Recognition System:</strong> Designed and trained a neural network for accurate recognition of handwritten text using TensorFlow/Keras.</p>
                 <p><strong>Created a Credit Score Model:</strong> Engineered a predictive model to assess credit scores using data preprocessing, feature engineering, and regression techniques.</p>
             </div>
-            <!-- Add more Internships here -->
-             <br>
-             <br>
         </section>
     </div>
 
-    <div id="footer" class="fixed bottom-0 left-0 w-full  text-white text-center py-3">
+    <div id="footer" class=" w-full  text-white text-center py-3">
         <!-- Footer content will be loaded here -->
     </div>
     <script>
@@ -156,18 +234,25 @@
                 })
                 .catch(error => console.error('Error loading footer:', error));
         });
-
-        window.addEventListener('scroll', () => {
-            const footer = document.getElementById('footer');
-            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-                footer.style.display = 'block';
+    </script>
+    <script>
+        document.getElementById('nav-toggler').addEventListener('click', function() {
+            var mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
             } else {
-                footer.style.display = 'none';
+                mobileMenu.classList.add('hidden');
+            }
+        });
+
+        window.addEventListener('scroll', function() {
+            var navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
             }
         });
     </script>
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
 </body>
 </html>
